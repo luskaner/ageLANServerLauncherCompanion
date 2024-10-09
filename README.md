@@ -35,7 +35,7 @@ maintainer.
 
 </details>
 
-## Configuratiom
+## Configuration
 
 **⚠️ ONLY FOLLOW THIS IF YOU HAVE A LEGAL LICENSE IN THE RESPECTIVE PLATFORM FOR THE GAME AND THE CONFIGURED DLCS ⚠️**
 
