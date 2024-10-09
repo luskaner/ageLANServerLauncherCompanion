@@ -1,0 +1,76 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*.*.*.*'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        submodules: true
+
+    - uses: lukka/run-vcpkg@v10
+    
+    - uses: microsoft/setup-msbuild@v2
+
+    - run: msbuild /m /p:Configuration=Release    
+
+    - uses: crazy-max/ghaction-import-gpg@v6
+      with:
+        gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
+        passphrase: ${{ secrets.PASSPHRASE }}
+
+    - name: Set Env
+      run: |
+        echo "GITHUB_RELEASE_FOLDER=$(echo 'x64/Release')" >> $env:GITHUB_ENV
+
+    - name: Rename DLL files
+      run: |
+        $files = Get-ChildItem -Path "${{ env.GITHUB_RELEASE_FOLDER }}" -Filter *.dll
+        foreach ($file in $files) {          
+          $newName = "${{ github.event.repository.name }}_$($file.BaseName)_${{ github.ref_name }}.dll"
+          Rename-Item -Path $file.FullName -NewName $newName
+        }
+
+    - name: Compress DLL files
+      run: |
+        $files = Get-ChildItem -Path "${{ env.GITHUB_RELEASE_FOLDER }}" -Filter *.dll
+        foreach ($file in $files) {
+          Compress-Archive -Path $file.FullName -DestinationPath "${{ env.GITHUB_RELEASE_FOLDER }}\$($file.BaseName).zip"
+        }
+
+    - name: Compress DLL files into one ZIP
+      run: |
+        Compress-Archive -Path "${{ env.GITHUB_RELEASE_FOLDER }}\*.dll" -DestinationPath "${{ env.GITHUB_RELEASE_FOLDER }}\${{ github.event.repository.name }}_full_${{ github.ref_name }}.zip"
+
+    - name: Generate checksums
+      run: |
+        $files = Get-ChildItem -Path "${{ env.GITHUB_RELEASE_FOLDER }}" -Filter *.zip
+        $hashes = @()
+        foreach ($file in $files) {
+          $hash = Get-FileHash -Path $file.FullName -Algorithm SHA256
+          $hashes += "$($hash.Hash) $($file.Name)"
+        }
+        $hashes | Out-File -FilePath "${{ env.GITHUB_RELEASE_FOLDER }}\${{ github.event.repository.name }}_checksums_${{ github.ref_name }}.txt"
+
+    - name: Sign checksums
+      run: |
+        gpg --output "${{ env.GITHUB_RELEASE_FOLDER }}\${{ github.event.repository.name }}_checksums_${{ github.ref_name }}.txt.sig" --detach-sign "${{ env.GITHUB_RELEASE_FOLDER }}\${{ github.event.repository.name }}_checksums_${{ github.ref_name }}.txt"
+
+    - uses: softprops/action-gh-release@v2
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        files: |
+          ${{ env.GITHUB_RELEASE_FOLDER }}/*.zip
+          ${{ env.GITHUB_RELEASE_FOLDER }}/*_checksums_*.txt
+          ${{ env.GITHUB_RELEASE_FOLDER }}/*_checksums_*.sig
+        draft: true
+        generate_release_notes: true

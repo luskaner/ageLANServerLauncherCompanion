@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35312.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FakeOnline", "FakeOnline\FakeOnline.vcxproj", "{68C1AFC3-2635-4663-90D8-050C3A7A3C8D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Elementos de la solución", "Elementos de la solución", "{80712833-CA6D-4A74-BABC-0D5F675489B4}"
+	ProjectSection(SolutionItems) = preProject
+		Directory.Build.props = Directory.Build.props
+		Directory.Build.targets = Directory.Build.targets
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{68C1AFC3-2635-4663-90D8-050C3A7A3C8D}.Debug|x64.ActiveCfg = Debug|x64
+		{68C1AFC3-2635-4663-90D8-050C3A7A3C8D}.Debug|x64.Build.0 = Debug|x64
+		{68C1AFC3-2635-4663-90D8-050C3A7A3C8D}.Release|x64.ActiveCfg = Release|x64
+		{68C1AFC3-2635-4663-90D8-050C3A7A3C8D}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9C63CC25-F3DB-42B2-A681-042BF1AD6CC7}
+	EndGlobalSection
+EndGlobal
