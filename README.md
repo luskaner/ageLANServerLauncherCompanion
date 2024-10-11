@@ -119,7 +119,7 @@ ip_country=
 ```
 11. Modify the fields according to the comments.
 12. Copy the DLLs you have download from here to `dlls` folder (*uncompressed*).
-13. Edit [AoE2:DE Lan Server - Launcher](https://github.com/luskaner/aoe2DELanServer/tree/main/launcher) launcher `resources\config.ini` and set:
+13. Edit [AoE2:DE Lan Server - Launcher](https://github.com/luskaner/aoe2DELanServer/tree/main/launcher) `resources\config.ini` and set:
    * `[Client]`:
       * `Executable`:  `Drive:\Path\To\steamclient_loader_x64.exe`.
 
