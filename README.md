@@ -1,21 +1,21 @@
-# Age of Empires 2 Lan Server - Launcher Companion
+# Age LAN Server - Launcher Companion
 
-AoE2:DE LAN Server - Launcher Companion aims to provide DLL files to enhance or fix certain behaviours of the game to better be used with [AOE2:DE Lan Server](https://github.com/luskaner/aoe2DELanServer) launcher when using a custom game launcher.
+Age LAN Server - Launcher Companion aims to provide DLL files to enhance or fix certain behaviours of the game to better be used with [Age LAN Server](https://github.com/luskaner/ageLANServer) launcher when using a custom game launcher.
 
 ## Libraries
 
-* `FakeOnline.dll`: Fakes an internet always online behaviour. It is essential so that [AOE2:DE Lan Server](https://github.com/luskaner/aoe2DELanServer) can be used 100% offline.
+* `FakeOnline.dll`: Fakes an internet always online behaviour. It is essential so that [Age LAN Server](https://github.com/luskaner/ageLANServer) can be used 100% offline.
 * *more to come...*
 
 ## Minimum system requirements
 
 * [Microsoft Visual C++ Redistributable](https://aka.ms/vs/17/release/vc_redist.x64.exe) (*it is very likely you have it installed already*).
 
-*Note: It is assumed the requirements for the [game itself](https://support.ageofempires.com/hc/en-us/articles/360054372531-What-are-the-minimum-requirements-for-Age-of-Empires-II-Definitive-Edition) are met too*.
+*Note: It is assumed the requirements for the [AoE II: DE](https://support.ageofempires.com/hc/en-us/articles/360054372531-What-are-the-minimum-requirements-for-Age-of-Empires-II-Definitive-Edition) or [AoE III: DE](https://support.ageofempires.com/hc/en-us/articles/360049678611-What-are-the-minimum-requirements-for-the-game) are met too*.
 
 ## Binaries
 
-See the [releases page](https://github.com/luskaner/aoe2DELanServerLauncherCompanion/releases)
+See the [releases page](https://github.com/luskaner/ageLANServerLauncherCompanion/releases)
 
 *Note: If you are using Antivirus it may flag one or more binaries as virus, this is a **false positive***.
 
@@ -35,7 +35,7 @@ maintainer.
 
 </details>
 
-## Configuration
+## Age of Empires II : Definitive Edition - Configuration
 
 **⚠️ ONLY FOLLOW THIS IF YOU HAVE A LEGAL LICENSE IN THE RESPECTIVE PLATFORM FOR THE GAME AND THE CONFIGURED DLCS ⚠️**
 
@@ -119,11 +119,98 @@ ip_country=
 ```
 11. Modify the fields according to the comments.
 12. Copy the DLLs you have download from here to `dlls` folder (*uncompressed*).
-13. Edit [AoE2:DE Lan Server - Launcher](https://github.com/luskaner/aoe2DELanServer/tree/main/launcher) `resources\config.ini` and set:
+13. Edit [Age LAN Server - Launcher](https://github.com/luskaner/ageLANServer/tree/main/launcher) `resources\config.aoe2.toml` and set:
    * `[Client]`:
       * `Executable`:  `Drive:\Path\To\steamclient_loader_x64.exe`.
 
-*Note: Up-to-date as of 09/10/2024 and using release `Release 2024 10 06`*.
+*Note: Up-to-date as of 03/11/2024 and using release `Release 2024 10 25`*.
+</details>
+
+## Age of Empires III : Definitive Edition - Configuration
+
+**⚠️ ONLY FOLLOW THIS IF YOU HAVE A LEGAL LICENSE IN THE RESPECTIVE PLATFORM FOR THE GAME AND THE CONFIGURED DLCS ⚠️**
+
+You will need to use a custom launcher that either emulates Steam or Xbox Live (depending on the version you are using of the game) and configure it to inject the DLLs you want.
+
+<details>
+    <summary>Steam</summary>
+
+There are multiple Steam emulators you can use, however, the only one tested is the continuation of the so-called [Goldberg Emulator](https://gitlab.com/Mr_Goldberg/goldberg_emulator) hosted [here](https://github.com/Detanup01/gbe_fork).
+
+Here are the basic steps suposing you are using Windows:
+1. Download the latest stable [emu-win-release.7z](https://github.com/Detanup01/gbe_fork/releases/latest/download/emu-win-release.7z).
+2. Uncompress it in a temporary directory (*to be deleted later*).
+3. Copy these files residing in `release\steamclient_experimental` to your preferred folder **outside the game's directory itself**:
+   * `steamclient.dll`
+   * `steamclient64.dll`
+   * `ColdClientLoader.ini`
+   * `steamclient_loader_x64.exe`
+4. Create the subdirectory `dlls` and `steam_settings` where the other files reside.
+5. Modify `ColdClientLoader.ini` and set the following values:
+   * `[SteamClient]`:
+     * `Exe`:  `Drive:\Path\To\SteamLibrary\steamapps\common\AoE3DE\AoE3DE_s.exe`.
+     * `AppId`: 933110.
+   * `[Injection]`
+     * `DllsToInjectFolder`: `dlls`.
+6. Create `steam_settings\supported_languages.txt` with notepad and copy the following text as-is:
+```text
+english
+french
+italian
+german
+japanese
+koreana
+brazilian
+russian
+schinese
+tchinese
+turkish
+vietnamese
+spanish
+```
+7. Create `steam_settings\achievements.json` with notepad and copy the following text as-is:
+```json
+
+```
+8. Create `steam_settings\configs.app.ini` with notepad and copy the following text:
+```ini
+[app::dlcs]
+unlock_all=0
+# Base Game
+#2477660=Age of Empires III: Definitive Edition (Base Game)
+# Civilizations
+#1581450=Age of Empires III: Definitive Edition - United States Civilization
+#1817370=Age of Empires III: Definitive Edition - Mexico Civilization
+# Expansions
+#1581451=Age of Empires III: DE The African Royals
+#1817361=Age of Empires III: Definitive Edition - Knights of the Mediterranean
+# Cosmetics
+#2154360=Age of Empires III: Definitive Edition – Hero Cosmetic Pack – Lizzie
+#2154361=Age of Empires III: Definitive Edition – Hero Cosmetic Pack – Kunoichi
+#2154362=Age of Empires III: Definitive Edition – Hero Cosmetic Pack – Vol. 1
+# Other
+#1331250=Boston - 4K Cinematic Pack
+```
+9. Remove the starting `#` for the DLCs **you legally own** and are installed.
+10. Create `steam_settings\configs.user.ini` with notepad and copy the following text:
+```ini
+[user::general]
+# Fill your account name as you would normally see.
+account_name=
+# Fill with your real steamid or leave empty for it to be auto-generated.
+account_steamid=
+# Choose one from steam_settings\supported_languages.txt (described in https://partner.steamgames.com/doc/store/localization/languages) or leave empty to be set as 'english'
+language=
+# Choose from 'Alpha-2' country code: https://www.iban.com/country-codes or leave empty to be set as 'US'
+ip_country=
+```
+11. Modify the fields according to the comments.
+12. Copy the DLLs you have download from here to `dlls` folder (*uncompressed*).
+13. Edit [Age LAN Server - Launcher](https://github.com/luskaner/ageLANServer/tree/main/launcher) `resources\config.aoe3.toml` and set:
+   * `[Client]`:
+      * `Executable`:  `Drive:\Path\To\steamclient_loader_x64.exe`.
+
+*Note: Up-to-date as of 03/11/2024 and using release `Release 2024 10 25`*.
 </details>
 
 ## Development
@@ -142,13 +229,13 @@ Before staring make sure to clone the repo with submodules and install `vcpkg` s
 
 * Release Build: `msbuild /m /p:Configuration=Release`
 * Debug Build:  `msbuild /m /p:Configuration=Debug`
-* Release workflow: See [Github Workflow](https://github.com/luskaner/aoe2DELanServerLauncherCompanion/blob/main/.github/workflows/release.yml)
+* Release workflow: See [Github Workflow](https://github.com/luskaner/ageLANServerLauncherCompanion/blob/main/.github/workflows/release.yml)
   
 </details>
 
 ## Terms of Use
 
-You may only use the provided binaries if you use it in conjuction with [AoE2:DE Lan Server](https://github.com/luskaner/aoe2DELanServer?) and comply with its [ToU](https://github.com/luskaner/aoe2DELanServer?tab=readme-ov-file#terms-of-use).
+You may only use the provided binaries if you use it in conjuction with [Age LAN Server](https://github.com/luskaner/ageLANServer) and comply with its [ToU](https://github.com/luskaner/ageLANServer?tab=readme-ov-file#terms-of-use).
 
 Disclaimer: This software is not affiliated with Xbox Game Studios, Microsoft Corporation, Forgotten Empires LLC,
 World's Edge LLC, or any other entity that is involved in the development of Age of Empires 2 Definitive Edition.
