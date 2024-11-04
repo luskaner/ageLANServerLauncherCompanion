@@ -35,14 +35,13 @@ maintainer.
 
 </details>
 
-## Age of Empires II : Definitive Edition - Configuration
+## Configuration
 
 **⚠️ ONLY FOLLOW THIS IF YOU HAVE A LEGAL LICENSE IN THE RESPECTIVE PLATFORM FOR THE GAME AND THE CONFIGURED DLCS ⚠️**
 
 You will need to use a custom launcher that either emulates Steam or Xbox Live (depending on the version you are using of the game) and configure it to inject the DLLs you want.
 
-<details>
-    <summary>Steam</summary>
+### Steam
 
 There are multiple Steam emulators you can use, however, the only one tested is the continuation of the so-called [Goldberg Emulator](https://gitlab.com/Mr_Goldberg/goldberg_emulator) hosted [here](https://github.com/Detanup01/gbe_fork).
 
@@ -55,13 +54,20 @@ Here are the basic steps suposing you are using Windows:
    * `ColdClientLoader.ini`
    * `steamclient_loader_x64.exe`
 4. Create the subdirectory `dlls` and `steam_settings` where the other files reside.
-5. Modify `ColdClientLoader.ini` and set the following values:
+5. Follow game-specific steps.
+
+#### Age of Empires II : Definitive Edition
+
+<details>
+    <summary>Steps</summary>
+
+1. Modify `ColdClientLoader.ini` and set the following values:
    * `[SteamClient]`:
      * `Exe`:  `Drive:\Path\To\SteamLibrary\steamapps\common\AoE2DE\AoE2DE_s.exe`.
      * `AppId`: 813780.
    * `[Injection]`
      * `DllsToInjectFolder`: `dlls`.
-6. Create `steam_settings\supported_languages.txt` with notepad and copy the following text as-is:
+2. Create `steam_settings\supported_languages.txt` with notepad and copy the following text as-is:
 ```text
 english
 french
@@ -82,11 +88,11 @@ polish
 hindi
 malay
 ```
-7. Create `steam_settings\achievements.json` with notepad and copy the following text as-is:
+3. Create `steam_settings\achievements.json` with notepad and copy the following text as-is:
 ```json
 [{"name":"ACHIEVEMENT_ETERNAL_GRATITUDE"},{"name":"AZTEC_VICTORY"},{"name":"BERBERS_VICTORY"},{"name":"BRITONS_VICTORY"},{"name":"BULGARIANS_VICTORY"},{"name":"BURMESE_VICTORY"},{"name":"BYZANTINES_VICTORY"},{"name":"CELTS_VICTORY"},{"name":"CHINESE_VICTORY"},{"name":"CUMANS_VICTORY"},{"name":"ETHIOPIANS_VICTORY"},{"name":"FRANKS_VICTORY"},{"name":"GOTHS_VICTORY"},{"name":"HUNS_VICTORY"},{"name":"INCAS_VICTORY"},{"name":"INDIANS_VICTORY"},{"name":"ITALIANS_VICTORY"},{"name":"JAPANESE_VICTORY"},{"name":"KHMER_VICTORY"},{"name":"KOREANS_VICTORY"},{"name":"LITHUANIANS_VICTORY"},{"name":"MAGYARS_VICTORY"},{"name":"MALAY_VICTORY"},{"name":"MALIANS_VICTORY"},{"name":"MAYANS_VICTORY"},{"name":"MONGOLS_VICTORY"},{"name":"PERSIANS_VICTORY"},{"name":"PORTUGUESE_VICTORY"},{"name":"SARACENS_VICTORY"},{"name":"SLAVS_VICTORY"},{"name":"SPANISH_VICTORY"},{"name":"TATARS_VICTORY"},{"name":"TEUTONS_VICTORY"},{"name":"TURKS_VICTORY"},{"name":"VIETNAMESE_VICTORY"},{"name":"VIKINGS_VICTORY"},{"name":"ACHIEVEMENT_CHAIN_REACTION"},{"name":"ACHIEVEMENT_SHEEP_HOARDER"},{"name":"ACHIEVEMENT_THE_WONDER"},{"name":"ACHIEVEMENT_LOSING_YOUR_RELIGION"},{"name":"ACHIEVEMENT_ANYONE_ORDER_PIZZA"},{"name":"ACHIEVEMENT_DARK_HUMOR"},{"name":"ACHIEVEMENT_HOWDY_NEIGHBOR"},{"name":"ACHIEVEMENT_NO_SUNTZU_LIGHT"},{"name":"ACHIEVEMENT_WOLOLO"},{"name":"ACHIEVEMENT_90_KG"},{"name":"ACHIEVEMENT_FIGHTING_FROM_AFAR"},{"name":"ACHIEVEMENT_CASTLE_CRUSHER"},{"name":"ACHIEVEMENT_CAMPAIGN_WALLACE_COMPLETED"},{"name":"ACHIEVEMENT_CAMPAIGN_JOANARC_COMPLETED"},{"name":"ACHIEVEMENT_CAMPAIGN_KHAN_COMPLETED"},{"name":"ACHIEVEMENT_CAMPAIGN_SALADIN_COMPLETED"},{"name":"ACHIEVEMENT_CAMPAIGN_BARBAROSSA_COMPLETED"},{"name":"ACHIEVEMENT_CAMPAIGN_ATTILA_COMPLETED"},{"name":"ACHIEVEMENT_CAMPAIGN_ELCID_COMPLETED"},{"name":"ACHIEVEMENT_CAMPAIGN_MONTEZUMA_COMPLETED"},{"name":"ACHIEVEMENT_CAMPAIGN_HISTORICAL_BATTLES_COMPLETE"},{"name":"ACHIEVEMENT_CAMPAIGN_ALARIC_COMPLETED"},{"name":"ACHIEVEMENT_CAMPAIGN_BARI_COMPLETED"},{"name":"ACHIEVEMENT_CAMPAIGN_DRACULA_COMPLETED"},{"name":"ACHIEVEMENT_CAMPAIGN_ELDORADO_COMPLETED"},{"name":"ACHIEVEMENT_CAMPAIGN_PRITHVIRAJ_COMPLETED"},{"name":"ACHIEVEMENT_CAMPAIGN_SFORZA_COMPLETED"},{"name":"ACHIEVEMENT_CAMPAIGN_PORTUGUESE_COMPLETED"},{"name":"ACHIEVEMENT_CAMPAIGN_MALIAN_COMPLETED"},{"name":"ACHIEVEMENT_CAMPAIGN_BERBER_COMPLETED"},{"name":"ACHIEVEMENT_CAMPAIGN_ETHIOPIAN_COMPLETED"},{"name":"ACHIEVEMENT_CAMPAIGN_BURMESE_COMPLETED"},{"name":"ACHIEVEMENT_CAMPAIGN_MALAY_COMPLETED"},{"name":"ACHIEVEMENT_CAMPAIGN_VIETNAMESE_COMPLETED"},{"name":"ACHIEVEMENT_CAMPAIGN_KHMER_COMPLETED"},{"name":"ACHIEVEMENT_CAMPAIGN_BULGARIAN_COMPLETED"},{"name":"ACHIEVEMENT_CAMPAIGN_TATAR_COMPLETED"},{"name":"ACHIEVEMENT_CAMPAIGN_CUMAN_COMPLETED"},{"name":"ACHIEVEMENT_NO_WONDER_LEFT_BEHIND"},{"name":"ACHIEVEMENT_CATHEDRAL_RUSH"},{"name":"ACHIEVEMENT_NO_WONDER_ON_MY_WATCH"},{"name":"ACHIEVEMENT_DIPLOMACY_IS_FOR_THE_MEEK"},{"name":"ACHIEVEMENT_KUSHLUK_ASSASSINATION"},{"name":"ACHIEVEMENT_I_WAS_IN_CHINA_BEFORE"},{"name":"ACHIEVEMENT_OFFENSE_IS_THE_BEST_DEFENSE"},{"name":"ACHIEVEMENT_OUT_WITH_A_BANG"},{"name":"ACHIEVEMENT_D_DAY"},{"name":"ACHIEVEMENT_THE_GO_GETTER"},{"name":"ACHIEVEMENT_FUROR_TEUTONICUS"},{"name":"ACHIEVEMENT_ATTILA_SPEED_RUN"},{"name":"ACHIEVEMENT_HOT_N_SPICY"},{"name":"ACHIEVEMENT_BATTLESHIP"},{"name":"ACHIEVEMENT_SURYAVARMAN_RELICS"},{"name":"ACHIEVEMENT_THE_MISSIONARY"},{"name":"ACHIEVEMENT_OTTOMAN_GLORY_SEEKER"},{"name":"ACHIEVEMENT_NO_HOJO"},{"name":"ACHIEVEMENT_FIRE_WITH_FIRE"},{"name":"ACHIEVEMENT_DESTROY_DELHI"},{"name":"ACHIEVEMENT_KILL_KING_TAKAYUTPI"},{"name":"ACHIEVEMENT_NO_KILLING_PORTUGUESE"},{"name":"ACHIEVEMENT_NUMBERS_BEAT_EVERYTHING"},{"name":"ACHIEVEMENT_ALARIC_SPEED_RUN"},{"name":"ACHIEVEMENT_DRAGON_SHIPS"},{"name":"ACHIEVEMENT_100_GBETO"},{"name":"ACHIEVEMENT_SATANS_MAP"},{"name":"ACHIEVEMENT_NO_SUPPORT"},{"name":"ACHIEVEMENT_RUSH_TO_THE_KING"},{"name":"ACHIEVEMENT_NOT_THE_VIPER"},{"name":"ACHIEVEMENT_NO_CASTLE_AGE"},{"name":"ACHIEVEMENT_DEFEAT_AUSTRIAN_DUKE"},{"name":"ACHIEVEMENT_NO_WALLS"},{"name":"ACHIEVEMENT_FRANKLY_MY_DEAR"},{"name":"ACHIEVEMENT_UNEXPECTED"},{"name":"ACHIEVEMENT_SUPREMELY_UNEXPECTED"},{"name":"ACHIEVEMENT_FINAL_COUNTDOWN"},{"name":"ACHIEVEMENT_KABOOM"},{"name":"ACHIEVEMENT_BULLS_EYE"},{"name":"ACHIEVEMENT_HOMELESS"},{"name":"ACHIEVEMENT_OUT_OF_THEIR_ELEMENT"},{"name":"ACHIEVEMENT_CASTLE_OF_DOUBT"},{"name":"ACHIEVEMENT_ITS_A_TREB"},{"name":"ACHIEVEMENT_MARCO_POLO"},{"name":"ACHIEVEMENT_KNOCKING_ON_YOUR_DOOR"},{"name":"ACHIEVEMENT_SUSHI_LOVER"},{"name":"ACHIEVEMENT_EASIEST_AI"},{"name":"ACHIEVEMENT_EASY_AI"},{"name":"ACHIEVEMENT_MODERATE_AI"},{"name":"ACHIEVEMENT_HARD_AI"},{"name":"ACHIEVEMENT_HARDEST_AI"},{"name":"ACHIEVEMENT_EXTREME_AI"},{"name":"ACHIEVEMENT_MANGO_SHOTS"},{"name":"ACHEVEMENT_HUN_WHAT_ARE_YOU_DOING"},{"name":"ACHIEVEMENT_VICTORY_WITH_EVERY_CIV"},{"name":"ACHIEVEMENT_LONG_LIVE_THE_KING"},{"name":"ACHIEVEMENT_RELIC_HUNTER"},{"name":"ACHIEVEMENT_DARK_DINNER"},{"name":"ACHIEVEMENT_PLEASANT_PEASANT"},{"name":"ACHIEVEMENT_BIRD_SHOOTING"},{"name":"ACHIEVEMENT_KARAMBOLAGE"},{"name":"ACHIEVEMENT_MASTERPIECE"},{"name":"ACHIEVEMENT_TOO_LAME_TO_TAME"},{"name":"ACHIEVEMENT_ELEPHANTASTIC"},{"name":"ACHIEVEMENT_CAMPAIGN_BRITONS_COMPLETED"},{"name":"ACHIEVEMENT_CAMPAIGN_BURGUNDIANS_COMPLETED"},{"name":"ACHIEVEMENT_CAMPAIGN_SICILIANS_COMPLETED"},{"name":"ACHIEVEMENT_UNCHIVALROUS_PRAGMATIST"},{"name":"ACHIEVEMENT_THRONE_THIEF"},{"name":"ACHIEVEMENT_MALLEUS_SCOTORUM"},{"name":"ACHIEVEMENT_NO_WHEELS"},{"name":"ACHIEVEMENT_A_SECOND_HASTINGS"},{"name":"ACHIEVEMENT_SHUT_UP_LA_HIRE"},{"name":"ACHIEVEMENT_SELFMADE_MAN"},{"name":"ACHIEVEMENT_HAUTE_HAUTE_BRIEF_CANDLE"},{"name":"ACHIEVEMENT_ITALY_JONES_AND_THE_FIRST_CRUSADE"},{"name":"BURGUNDIANS_VICTORY"},{"name":"SICILIANS_VICTORY"},{"name":"ACHIEVEMENT_FLEMISH_REVOLUTION"},{"name":"ACHIEVEMENT_DONJON_SERJEANT"},{"name":"ACHIEVEMENT_CAMPAIGN_LITHUANIANS_COMPLETED"},{"name":"ACHIEVEMENT_TOLERANT_PIETY"},{"name":"ACHIEVEMENT_SCATTERED_HORDE"},{"name":"ACHIEVEMENT_MINT_CONDITION"},{"name":"ACHIEVEMENT_CAMPAIGN_POLES_COMPLETED"},{"name":"ACHIEVEMENT_PROTECTOR_REALM"},{"name":"ACHIEVEMENT_NO_BAGGAGE"},{"name":"ACHIEVEMENT_NO_QUARTER"},{"name":"ACHIEVEMENT_CAMPAIGN_BOHEMIANS_COMPLETED"},{"name":"ACHIEVEMENT_MALEVOLENT_MARAUDER"},{"name":"ACHIEVEMENT_ZIZKOV_HILL"},{"name":"ACHIEVEMENT_AGAINST_ALL"},{"name":"BOHEMIANS_VICTORY"},{"name":"POLES_VICTORY"},{"name":"ACHIEVEMENT_OOF_NICE"},{"name":"ACHIEVEMENT_FAST_FOOD"},{"name":"ACHIEVEMENT_CAMPAIGN_HINDUSTANIS_COMPLETED"},{"name":"ACHIEVEMENT_NEVER_TRUST"},{"name":"ACHIEVEMENT_AN_OFFER"},{"name":"ACHIEVEMENT_THE_RENOVATOR"},{"name":"ACHIEVEMENT_CAMPAIGN_DRAVIDIANS_COMPLETED"},{"name":"ACHIEVEMENT_NO_REST_FOR_THE_WICKED"},{"name":"ACHIEVEMENT_EYE_OF_THE_TIGER"},{"name":"ACHIEVEMENT_NO_WONDER_YOU_WON"},{"name":"ACHIEVEMENT_CAMPAIGN_BENGALIS_COMPLETED"},{"name":"ACHIEVEMENT_HUNA_JOIN_ME"},{"name":"ACHIEVEMENT_CONSTRUCTION_CANCELLATION"},{"name":"ACHIEVEMENT_PARINIRVANA"},{"name":"ACHIEVEMENT_CAMPAIGN_RAJA_OF_THE_PEOPLE"},{"name":"ACHIEVEMENT_CAMPAIGN_HOPELESS_ROMANTIC"},{"name":"ACHIEVEMENT_CAMPAIGN_INSPIRING_POET"},{"name":"BENGALIS_VICTORY"},{"name":"DRAVIDIANS_VICTORY"},{"name":"GURJARAS_VICTORY"},{"name":"ACHIEVEMENT_FACE_MY_RATHA"},{"name":"ACHIEVEMENT_KING_OF_THE_SEAS"},{"name":"ACHIEVEMENT_FORGED_IN_THE_HEAT_OF_BATTLE"},{"name":"ACHIEVEMENT_NOT_JUST_A_MILITIA"},{"name":"ACHIEVEMENT_FAMILY_FEUDAL"},{"name":"ACHIEVEMENT_CAN_I_BE_FRANK_WITH_YOU"},{"name":"ACHIEVEMENT_CHALLENGE_ACCEPTED"},{"name":"ACHIEVEMENT_GOING_FOR_THE_GOLD"},{"name":"ACHIEVEMENT_WINGMAN"},{"name":"ACHIEVEMENT_BABY_BOOMER"},{"name":"ACHIEVEMENT_BULL_MARKET"},{"name":"ACHIEVEMENT_BON_VOYAGE"},{"name":"ACHIEVEMENT_PREPARE_FOR_BOAR"},{"name":"ACHIEVEMENT_CAMPAIGN_SUMERIANS_COMPLETED"},{"name":"ACHIEVEMENT_NOT_CUTTING_CORNERS"},{"name":"ACHIEVEMENT_EXPEDITED_DELIVERY"},{"name":"ACHIEVEMENT_UR_OUT_OF_HERE"},{"name":"ACHIEVEMENT_CAMPAIGN_MACEDONIANS_COMPLETED"},{"name":"ACHIEVEMENT_WHAT_WOULD_ALEXANDER_HAVE_DONE"},{"name":"ACHIEVEMENT_GREECED_LIGHTNING"},{"name":"ACHIEVEMENT_THE_BEST_DEFENSE"},{"name":"ACHIEVEMENT_CAMPAIGN_ROMANS_COMPLETED"},{"name":"ACHIEVEMENT_ARE_YOU_NOT_ENTERTAINED"},{"name":"ACHIEVEMENT_I_AM_LEGION"},{"name":"ACHIEVEMENT_YOU_HAVE_NO_POWER_HERE"},{"name":"ROMAN_VICTORY"},{"name":"POMPEII_ASSYRIAN_VICTORY"},{"name":"POMPEII_BABYLONIAN_VICTORY"},{"name":"POMPEII_CARTHAGINIAN_VICTORY"},{"name":"POMPEII_CHOSON_VICTORY"},{"name":"POMPEII_EGYPTIAN_VICTORY"},{"name":"POMPEII_GREEK_VICTORY"},{"name":"POMPEII_HITTITE_VICTORY"},{"name":"POMPEII_LACVIET_VICTORY"},{"name":"POMPEII_MACEDONIAN_VICTORY"},{"name":"POMPEII_MINOAN_VICTORY"},{"name":"POMPEII_PALMYRAN_VICTORY"},{"name":"POMPEII_PERSIAN_VICTORY"},{"name":"POMPEII_PHOENICIAN_VICTORY"},{"name":"POMPEII_ROMAN_VICTORY"},{"name":"POMPEII_SHANG_VICTORY"},{"name":"POMPEII_SUMERIAN_VICTORY"},{"name":"POMPEII_YAMATO_VICTORY"},{"name":"ACHIEVEMENT_RIDE_FOR_RUIN"},{"name":"ACHIEVEMENT_CALM_COOL_AND_COLLECTED"},{"name":"ACHIEVEMENT_AGILE_AS_A_SPARROW"},{"name":"ACHIEVEMENT_I_WONDER_WHY_I_DID_THAT"},{"name":"ACHIEVEMENT_FORGED_IN_IRON"},{"name":"ACHIEVEMENT_CHARIOTABLE_NUMBERS"},{"name":"ACHIEVEMENT_BUILDER_OF_CIVILIZATIONS"},{"name":"ACHIEVEMENT_TACTICAL_RETREAT"},{"name":"ACHIEVEMENT_PHILHELLENE"},{"name":"ACHIEVEMENT_LAW_MAKER"},{"name":"ACHIEVEMENT_CAMPAIGN_PERSIANS_COMPLETED"},{"name":"ACHIEVEMENT_SNEAK_ATTACK"},{"name":"ACHIEVEMENT_LANDSLIDE"},{"name":"ACHIEVEMENT_NO_GUNS"},{"name":"ACHIEVEMENT_CAMPAIGN_ARMENIANS_COMPLETED"},{"name":"ACHIEVEMENT_BOUNTY_HUNTER"},{"name":"ACHIEVEMENT_RAIDING_PARTY"},{"name":"ACHIEVEMENT_CHURCH_SANCTUARY"},{"name":"ACHIEVEMENT_CAMPAIGN_GEORGIANS_COMPLETED"},{"name":"ACHIEVEMENT_GAME_OVER_YURY"},{"name":"ACHIEVEMENT_AUNTIE_DEAREST"},{"name":"ACHIEVEMENT_ALEXANDRA_THE_GREAT"},{"name":"ARMENIANS_VICTORY"},{"name":"GEORGIANS_VICTORY"},{"name":"ACHIEVEMENT_CAMPAIGN_HEROES_AND_VILLAINS_COMPLETED"},{"name":"ACHIEVEMENT_LOST_VIKINGS"},{"name":"ACHIEVEMENT_THE_OLD_FASHIONED_WAY"},{"name":"ACHIEVEMENT_DAIMYO_OF_THE_NINE_PROVINCES"},{"name":"ACHIEVEMENT_PLEBEIAN_PRESERVER"},{"name":"ACHIEVEMENT_VANDALIZED"},{"name":"ACHIEVEMENT_UNITED_WE_FALL"},{"name":"ACHIEVEMENT_AGE_OF_VIKINGS"},{"name":"ACHIEVEMENT_GENERATIONAL_AMBITIONS"},{"name":"ACHIEVEMENT_BREAD_AND_CIRCUSES"},{"name":"ACHIEVEMENT_GALLEON_BLING"},{"name":"ACHIEVEMENT_SO_EPIC"},{"name":"ACHIEVEMENT_CIVIS_ROMANUS"},{"name":"ACHIEVEMENT_SEEDS_OF_THEIR_OWN_DESTRUCTION"},{"name":"ACHIEVEMENT_A_MOST_CONVENIENT_DEATH"},{"name":"ACHIEVEMENT_FASTER_THAN_A_SPEEDING_CANNONBALL"},{"name":"ACHIEVEMENT_TRUST_NO_ONE"},{"name":"ACHIEVEMENT_COUP_DETAT"},{"name":"ACHIEVEMENT_SAXON_REVENGE"},{"name":"ACHIEVEMENT_SHOGUN"}]
 ```
-8. Create `steam_settings\configs.app.ini` with notepad and copy the following text:
+4. Create `steam_settings\configs.app.ini` with notepad and copy the following text:
 ```ini
 [app::dlcs]
 unlock_all=0
@@ -104,8 +110,8 @@ unlock_all=0
 # Other
 #1039811=Enhanced Graphics Pack
 ```
-9. Remove the starting `#` for the DLCs **you legally own** and are installed.
-10. Create `steam_settings\configs.user.ini` with notepad and copy the following text:
+5. Remove the starting `#` for the DLCs **you legally own** and are installed.
+6. Create `steam_settings\configs.user.ini` with notepad and copy the following text:
 ```ini
 [user::general]
 # Fill your account name as you would normally see.
@@ -117,42 +123,27 @@ language=
 # Choose from 'Alpha-2' country code: https://www.iban.com/country-codes or leave empty to be set as 'US'
 ip_country=
 ```
-11. Modify the fields according to the comments.
-12. Copy the DLLs you have download from here to `dlls` folder (*uncompressed*).
-13. Edit [Age LAN Server - Launcher](https://github.com/luskaner/ageLANServer/tree/main/launcher) `resources\config.aoe2.toml` and set:
+7. Modify the fields according to the comments.
+8. Copy the DLLs you have download from here to `dlls` folder (*uncompressed*).
+9. Edit [Age LAN Server - Launcher](https://github.com/luskaner/ageLANServer/tree/main/launcher) `resources\config.aoe2.toml` and set:
    * `[Client]`:
       * `Executable`:  `Drive:\Path\To\steamclient_loader_x64.exe`.
 
 *Note: Up-to-date as of 03/11/2024 and using release `Release 2024 10 25`*.
 </details>
 
-## Age of Empires III : Definitive Edition - Configuration
-
-**⚠️ ONLY FOLLOW THIS IF YOU HAVE A LEGAL LICENSE IN THE RESPECTIVE PLATFORM FOR THE GAME AND THE CONFIGURED DLCS ⚠️**
-
-You will need to use a custom launcher that either emulates Steam or Xbox Live (depending on the version you are using of the game) and configure it to inject the DLLs you want.
+### Age of Empires III : Definitive Edition
 
 <details>
-    <summary>Steam</summary>
+    <summary>Steps</summary>
 
-There are multiple Steam emulators you can use, however, the only one tested is the continuation of the so-called [Goldberg Emulator](https://gitlab.com/Mr_Goldberg/goldberg_emulator) hosted [here](https://github.com/Detanup01/gbe_fork).
-
-Here are the basic steps suposing you are using Windows:
-1. Download the latest stable [emu-win-release.7z](https://github.com/Detanup01/gbe_fork/releases/latest/download/emu-win-release.7z).
-2. Uncompress it in a temporary directory (*to be deleted later*).
-3. Copy these files residing in `release\steamclient_experimental` to your preferred folder **outside the game's directory itself**:
-   * `steamclient.dll`
-   * `steamclient64.dll`
-   * `ColdClientLoader.ini`
-   * `steamclient_loader_x64.exe`
-4. Create the subdirectory `dlls` and `steam_settings` where the other files reside.
-5. Modify `ColdClientLoader.ini` and set the following values:
+1. Modify `ColdClientLoader.ini` and set the following values:
    * `[SteamClient]`:
      * `Exe`:  `Drive:\Path\To\SteamLibrary\steamapps\common\AoE3DE\AoE3DE_s.exe`.
      * `AppId`: 933110.
    * `[Injection]`
      * `DllsToInjectFolder`: `dlls`.
-6. Create `steam_settings\supported_languages.txt` with notepad and copy the following text as-is:
+2. Create `steam_settings\supported_languages.txt` with notepad and copy the following text as-is:
 ```text
 english
 french
@@ -168,11 +159,11 @@ turkish
 vietnamese
 spanish
 ```
-7. Create `steam_settings\achievements.json` with notepad and copy the following text as-is:
+3. Create `steam_settings\achievements.json` with notepad and copy the following text as-is:
 ```json
 
 ```
-8. Create `steam_settings\configs.app.ini` with notepad and copy the following text:
+4. Create `steam_settings\configs.app.ini` with notepad and copy the following text:
 ```ini
 [app::dlcs]
 unlock_all=0
@@ -191,8 +182,8 @@ unlock_all=0
 # Other
 #1331250=Boston - 4K Cinematic Pack
 ```
-9. Remove the starting `#` for the DLCs **you legally own** and are installed.
-10. Create `steam_settings\configs.user.ini` with notepad and copy the following text:
+5. Remove the starting `#` for the DLCs **you legally own** and are installed.
+6. Create `steam_settings\configs.user.ini` with notepad and copy the following text:
 ```ini
 [user::general]
 # Fill your account name as you would normally see.
@@ -204,9 +195,9 @@ language=
 # Choose from 'Alpha-2' country code: https://www.iban.com/country-codes or leave empty to be set as 'US'
 ip_country=
 ```
-11. Modify the fields according to the comments.
-12. Copy the DLLs you have download from here to `dlls` folder (*uncompressed*).
-13. Edit [Age LAN Server - Launcher](https://github.com/luskaner/ageLANServer/tree/main/launcher) `resources\config.aoe3.toml` and set:
+7. Modify the fields according to the comments.
+8. Copy the DLLs you have download from here to `dlls` folder (*uncompressed*).
+9. Edit [Age LAN Server - Launcher](https://github.com/luskaner/ageLANServer/tree/main/launcher) `resources\config.aoe3.toml` and set:
    * `[Client]`:
       * `Executable`:  `Drive:\Path\To\steamclient_loader_x64.exe`.
 
