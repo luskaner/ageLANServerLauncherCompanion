@@ -4,7 +4,7 @@ Age LAN Server - Launcher Companion aims to provide DLL files to enhance or fix 
 
 ## Libraries
 
-* `FakeOnline.dll`: Fakes an internet always online behaviour. It is essential so that [Age LAN Server](https://github.com/luskaner/ageLANServer) can be used 100% offline.
+* `FakeOnline.dll`: Fakes an internet always online behaviour. It is essential so that [Age LAN Server](https://github.com/luskaner/ageLANServer) can be used 100% offline. Currently, not working for AoE III: DE.
 * *more to come...*
 
 ## Minimum system requirements
