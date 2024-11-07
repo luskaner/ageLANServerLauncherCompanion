@@ -73,7 +73,7 @@ BEGIN
             VALUE "LegalCopyright", "Copyright (C) 2024 - https://github.com/luskaner/ageLANServerLauncherCompanion"
             VALUE "OriginalFilename", "Age3FakeOnline.dll"
             VALUE "ProductName", "Age3FakeOnline"
-            VALUE "ProductVersion", "1.0.0.0"
+            VALUE "ProductVersion", "1.2.0.0"
         END
     END
     BLOCK "VarFileInfo"

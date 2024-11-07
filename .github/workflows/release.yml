@@ -36,7 +36,8 @@ jobs:
       run: |
         $files = Get-ChildItem -Path "${{ env.GITHUB_RELEASE_FOLDER }}" -Filter *.dll
         foreach ($file in $files) {          
-          $newName = "${{ github.event.repository.name }}_$($file.BaseName)_${{ github.ref_name }}.dll"
+          $fileVersion = (Get-Item $file).VersionInfo.FileVersion
+          $newName = "${{ github.event.repository.name }}_$($file.BaseName)_$($fileVersion).dll"
           Rename-Item -Path $file.FullName -NewName $newName
         }
 
