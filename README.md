@@ -124,7 +124,7 @@ language=
 ip_country=
 ```
 7. Modify the fields according to the comments.
-8. Copy the DLLs you have download from here to `dlls` folder (*uncompressed*).
+8. Copy the `Age2...` DLLs you have download from here to `dlls` folder (*uncompressed*).
 9. Edit [Age LAN Server - Launcher](https://github.com/luskaner/ageLANServer/tree/main/launcher) `resources\config.aoe2.toml` and set:
    * `[Client]`:
       * `Executable`:  `Drive:\Path\To\steamclient_loader_x64.exe`.
@@ -196,7 +196,7 @@ language=
 ip_country=
 ```
 7. Modify the fields according to the comments.
-8. Copy the DLLs you have download from here to `dlls` folder (*uncompressed*).
+8. Copy the `Age3...` DLLs you have download from here to `dlls` folder (*uncompressed*).
 9. Edit [Age LAN Server - Launcher](https://github.com/luskaner/ageLANServer/tree/main/launcher) `resources\config.aoe3.toml` and set:
    * `[Client]`:
       * `Executable`:  `Drive:\Path\To\steamclient_loader_x64.exe`.
