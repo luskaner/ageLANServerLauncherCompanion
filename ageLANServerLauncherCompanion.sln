@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35312.102
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FakeOnline", "FakeOnline\FakeOnline.vcxproj", "{68C1AFC3-2635-4663-90D8-050C3A7A3C8D}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Age2FakeOnline", "age2\FakeOnline\Age2FakeOnline.vcxproj", "{68C1AFC3-2635-4663-90D8-050C3A7A3C8D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Elementos de la solución", "Elementos de la solución", "{80712833-CA6D-4A74-BABC-0D5F675489B4}"
 	ProjectSection(SolutionItems) = preProject
 		Directory.Build.props = Directory.Build.props
 		Directory.Build.targets = Directory.Build.targets
 	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FakeOnline", "age3\FakeOnline\Age3FakeOnline.vcxproj", "{942B1424-6C69-4C2A-A4E1-3F2D7539C21B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{68C1AFC3-2635-4663-90D8-050C3A7A3C8D}.Debug|x64.Build.0 = Debug|x64
 		{68C1AFC3-2635-4663-90D8-050C3A7A3C8D}.Release|x64.ActiveCfg = Release|x64
 		{68C1AFC3-2635-4663-90D8-050C3A7A3C8D}.Release|x64.Build.0 = Release|x64
+		{942B1424-6C69-4C2A-A4E1-3F2D7539C21B}.Debug|x64.ActiveCfg = Debug|x64
+		{942B1424-6C69-4C2A-A4E1-3F2D7539C21B}.Debug|x64.Build.0 = Debug|x64
+		{942B1424-6C69-4C2A-A4E1-3F2D7539C21B}.Release|x64.ActiveCfg = Release|x64
+		{942B1424-6C69-4C2A-A4E1-3F2D7539C21B}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

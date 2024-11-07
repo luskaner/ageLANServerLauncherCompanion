@@ -1,5 +1,7 @@
 #include "pch.h"
 #include "fakeonline.h"
+#include "fakeenumnetworks.h"
+#include <string>
 
 FakeNetworkListManager::FakeNetworkListManager(INetworkListManager* original) : original(original) {}
 
@@ -20,12 +22,11 @@ HRESULT STDMETHODCALLTYPE FakeNetworkListManager::Invoke(DISPID dispIdMember, RE
 }
 
 HRESULT STDMETHODCALLTYPE FakeNetworkListManager::get_IsConnectedToInternet(VARIANT_BOOL* pbIsConnected) {
-    return get_IsConnected(pbIsConnected);
+    return original->get_IsConnected(pbIsConnected);
 }
 
 HRESULT STDMETHODCALLTYPE FakeNetworkListManager::get_IsConnected(VARIANT_BOOL* pbIsConnected) {
-    *pbIsConnected = VARIANT_TRUE;
-    return S_OK;
+	return original->get_IsConnected(pbIsConnected);
 }
 
 HRESULT STDMETHODCALLTYPE FakeNetworkListManager::QueryInterface(REFIID riid, void** ppvObject) {
@@ -37,15 +38,15 @@ ULONG STDMETHODCALLTYPE FakeNetworkListManager::AddRef() {
 }
 
 ULONG STDMETHODCALLTYPE FakeNetworkListManager::Release() {
-    ULONG refCount = original->Release();
-    if (refCount == 0) {
-        delete this;
-    }
-    return refCount;
+	return original->Release();
 }
 
 HRESULT STDMETHODCALLTYPE FakeNetworkListManager::GetNetworks(NLM_ENUM_NETWORK Flags, IEnumNetworks** ppEnumNetwork) {
-    return original->GetNetworks(Flags, ppEnumNetwork);
+    HRESULT hr = original->GetNetworks(Flags, ppEnumNetwork);
+	IEnumNetworks* pOriginalEnumNetwork = *ppEnumNetwork; 
+    FakeEnumNetworks* pProxy = new FakeEnumNetworks(pOriginalEnumNetwork);
+	*ppEnumNetwork = pProxy;
+    return hr;
 }
 
 HRESULT STDMETHODCALLTYPE FakeNetworkListManager::GetNetwork(GUID gdNetworkId, INetwork** ppNetwork) {

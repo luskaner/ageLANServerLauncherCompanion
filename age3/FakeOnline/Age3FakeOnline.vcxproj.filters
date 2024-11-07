@@ -13,6 +13,12 @@
     <ClCompile Include="fakeonline.cpp">
       <Filter>Implementation</Filter>
     </ClCompile>
+    <ClCompile Include="fakenetwork.cpp">
+      <Filter>Implementation</Filter>
+    </ClCompile>
+    <ClCompile Include="fakeenumnetworks.cpp">
+      <Filter>Implementation</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="fakecomresolver.h">
@@ -30,6 +36,12 @@
     <ClInclude Include="resource.h">
       <Filter>Resources</Filter>
     </ClInclude>
+    <ClInclude Include="fakenetwork.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="fakeenumnetworks.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Headers">
@@ -43,7 +55,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="FakeOnline.rc">
+    <ResourceCompile Include="Age3FakeOnline.rc">
       <Filter>Resources</Filter>
     </ResourceCompile>
   </ItemGroup>
