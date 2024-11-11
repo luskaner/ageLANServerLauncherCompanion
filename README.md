@@ -101,6 +101,7 @@ ip_country=
 6. Edit [Age LAN Server - Launcher](https://github.com/luskaner/ageLANServer/tree/main/launcher) `resources\config.aoe1.toml` and set:
    * `[Client]`:
       * `Executable`:  `Drive:\Path\To\steamclient_loader_x64.exe`.
+</details>
 
 #### Age of Empires II : Definitive Edition
 
