@@ -4,14 +4,14 @@ Age LAN Server - Launcher Companion aims to provide DLL files to enhance or fix 
 
 ## Libraries
 
-* `Age2FakeOnline.dll` and `Age3FakeOnline.dll`: Fakes an internet always online behaviour. It is essential so that [Age Lan Server](https://github.com/luskaner/ageLANServer) can be used 100% offline.
+* `Age2FakeOnline.dll` and `Age3FakeOnline.dll`: Fakes an internet always online behaviour. It is essential so that [Age Lan Server](https://github.com/luskaner/ageLANServer) can be used 100% offline. **AoE I does not need it**.
 * *more to come...*
 
 ## Minimum system requirements
 
 * [Microsoft Visual C++ Redistributable](https://aka.ms/vs/17/release/vc_redist.x64.exe) (*it is very likely you have it installed already*).
 
-*Note: It is assumed the requirements for the [AoE II: DE](https://support.ageofempires.com/hc/en-us/articles/360054372531-What-are-the-minimum-requirements-for-Age-of-Empires-II-Definitive-Edition) or [AoE III: DE](https://support.ageofempires.com/hc/en-us/articles/360049678611-What-are-the-minimum-requirements-for-the-game) are met too*.
+*Note: It is assumed the requirements for the game itself are met too*.
 
 ## Binaries
 
@@ -55,6 +55,52 @@ Here are the basic steps suposing you are using Windows:
    * `steamclient_loader_x64.exe`
 4. Create the subdirectory `dlls` and `steam_settings` where the other files reside.
 5. Follow game-specific steps.
+
+#### Age of Empires: Definitive Edition
+
+<details>
+    <summary>Steps</summary>
+
+1. Modify `ColdClientLoader.ini` and set the following values:
+   * `[SteamClient]`:
+     * `Exe`:  `Drive:\Path\To\SteamLibrary\steamapps\common\AoEDE\AoEDE_s.exe`.
+     * `AppId`: 1017900.
+2. Create `steam_settings\supported_languages.txt` with notepad and copy the following text as-is:
+```text
+english
+french
+italian
+german
+japanese
+koreana
+brazilian
+russian
+schinese
+latam
+tchinese
+vietnamese
+spanish
+```
+3. Create `steam_settings\achievements.json` with notepad and copy the following text as-is:
+```json
+[{"name": "ROMA_VICTRIX"}, {"name": "VENI_VIDI_VICI"}, {"name": "IMPERIAL_PEACE"}, {"name": "THE_ELEPHANT_IN_THE_ROME"}, {"name": "PUNIC_ATTACK"}, {"name": "HITTITE_BABY_ONE_MORE_TIME"}, {"name": "PHARAOH"}, {"name": "SMOKING_ZIGGURATS"}, {"name": "EPIC"}, {"name": "BIG_IN_JAPAN"}, {"name": "HOMES"}, {"name": "TOWERS_OF_BABEL"}, {"name": "RISE_AND_WALL"}, {"name": "NOT_THAT_IM_KEEPING_COUNT"}, {"name": "HUN_IS_THAT_YOU"}, {"name": "HERACLES"}, {"name": "ARTEMIS"}, {"name": "PARTHIAN_SHOT"}, {"name": "21ST_CENTURY"}, {"name": "AXE_TO_GRIND"}, {"name": "CUTE_CATS"}, {"name": "THE_CHOSEN_ONES"}, {"name": "DANCING_CHARIOTS"}, {"name": "MINOAN_COMPIES"}, {"name": "SCYTHESEEING"}, {"name": "SYNTAGMA"}, {"name": "WOLOLO"}, {"name": "EYE_OF_HORUS"}, {"name": "LOSING_YOUR_RELIGION"}, {"name": "ATLAS"}, {"name": "FEET_ON_THE_GROUND"}, {"name": "EYE_IN_THE_SKY"}, {"name": "ASSASSIN"}, {"name": "PERSEUS"}, {"name": "COINAGE"}, {"name": "QUARRY"}, {"name": "WOODSTOCK"}, {"name": "PEPPERONI_PIZZA"}, {"name": "MARVELOUS"}, {"name": "ARCHIMEDES"}, {"name": "PEGASUS"}, {"name": "STATE_OF_THE_ARTIFACT"}, {"name": "RUIN_THEM_ALL"}, {"name": "RES_PUBLICA"}]
+```
+4. Create `steam_settings\configs.user.ini` with notepad and copy the following text:
+```ini
+[user::general]
+# Fill your account name as you would normally see.
+account_name=
+# Fill with your real steamid or leave empty for it to be auto-generated.
+account_steamid=
+# Choose one from steam_settings\supported_languages.txt (described in https://partner.steamgames.com/doc/store/localization/languages) or leave empty to be set as 'english'
+language=
+# Choose from 'Alpha-2' country code: https://www.iban.com/country-codes or leave empty to be set as 'US'
+ip_country=
+```
+5. Modify the fields according to the comments.
+6. Edit [Age LAN Server - Launcher](https://github.com/luskaner/ageLANServer/tree/main/launcher) `resources\config.aoe1.toml` and set:
+   * `[Client]`:
+      * `Executable`:  `Drive:\Path\To\steamclient_loader_x64.exe`.
 
 #### Age of Empires II : Definitive Edition
 
@@ -132,7 +178,7 @@ ip_country=
 *Note: Up-to-date as of 03/11/2024 and using release `Release 2024 10 25`*.
 </details>
 
-### Age of Empires III : Definitive Edition
+#### Age of Empires III : Definitive Edition
 
 <details>
     <summary>Steps</summary>
