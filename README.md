@@ -103,7 +103,7 @@ ip_country=
       * `Executable`:  `Drive:\Path\To\steamclient_loader_x64.exe`.
 </details>
 
-#### Age of Empires II : Definitive Edition
+#### Age of Empires II: Definitive Edition
 
 <details>
     <summary>Steps</summary>
@@ -179,7 +179,7 @@ ip_country=
 *Note: Up-to-date as of 03/11/2024 and using release `Release 2024 10 25`*.
 </details>
 
-#### Age of Empires III : Definitive Edition
+#### Age of Empires III: Definitive Edition
 
 <details>
     <summary>Steps</summary>
