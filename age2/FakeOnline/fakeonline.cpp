@@ -24,7 +24,8 @@ HRESULT STDMETHODCALLTYPE FakeNetworkListManager::get_IsConnectedToInternet(VARI
 }
 
 HRESULT STDMETHODCALLTYPE FakeNetworkListManager::get_IsConnected(VARIANT_BOOL* pbIsConnected) {
-	return original->get_IsConnected(pbIsConnected);
+	*pbIsConnected = VARIANT_TRUE;
+	return S_OK;
 }
 
 HRESULT STDMETHODCALLTYPE FakeNetworkListManager::QueryInterface(REFIID riid, void** ppvObject) {
