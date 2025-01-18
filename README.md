@@ -103,7 +103,7 @@ ip_country=
    * `[Client]`:
       * `Executable`:  `Drive:\Path\To\steamclient_loader_x64.exe`.
 
-*Note: Up-to-date as of 11/11/2024 and using release `Release 2024 11 09 (2) Fix`*.
+*Note: Up-to-date as of 19/11/2025 and using release `Release 2025 01 09`*.
     
 </details>
 
@@ -148,9 +148,6 @@ malay
 [app::dlcs]
 unlock_all=0
 # Expansions
-1389240=Age of Empires II: Definitive Edition - Lords of the West
-1557210=Age of Empires II: Definitive Edition - Dawn of the Dukes
-1869820=Age of Empires II: Definitive Edition - Dynasties of India
 #2141580=Age of Empires II: Definitive Edition - Return of Rome
 #2555420=Age of Empires II: Definitive Edition - The Mountain Royals
 #2805510=Age of Empires II: Definitive Edition - Victors and Vanquished
@@ -181,7 +178,7 @@ ip_country=
    * `[Client]`:
       * `Executable`:  `Drive:\Path\To\steamclient_loader_x64.exe`.
 
-*Note: Up-to-date as of 03/11/2024 and using release `Release 2024 10 25`*.
+*Note: Up-to-date as of 19/11/2025 and using release `Release 2025 01 09`*.
 </details>
 
 #### Age of Empires III: Definitive Edition
@@ -253,7 +250,7 @@ ip_country=
    * `[Client]`:
       * `Executable`:  `Drive:\Path\To\steamclient_loader_x64.exe`.
 
-*Note: Up-to-date as of 03/11/2024 and using release `Release 2024 10 25`*.
+*Note: Up-to-date as of 19/11/2025 and using release `Release 2025 01 09`*.
 </details>
 
 ## Development
