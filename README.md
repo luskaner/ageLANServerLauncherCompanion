@@ -1,4 +1,6 @@
 # Age LAN Server - Launcher Companion
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fluskaner%2FageLANServerLauncherCompanion.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fluskaner%2FageLANServerLauncherCompanion?ref=badge_shield)
+
 
 Age LAN Server - Launcher Companion aims to provide DLL files to enhance or fix certain behaviours of the game to better be used with [Age LAN Server](https://github.com/luskaner/ageLANServer) launcher when using a custom game launcher.
 
@@ -279,3 +281,7 @@ You may only use the provided binaries if you use it in conjuction with [Age LAN
 
 Disclaimer: This software is not affiliated with Xbox Game Studios, Microsoft Corporation, Forgotten Empires LLC,
 World's Edge LLC, or any other entity that is involved in the development of Age of Empires 2 Definitive Edition.
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fluskaner%2FageLANServerLauncherCompanion.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fluskaner%2FageLANServerLauncherCompanion?ref=badge_large)
