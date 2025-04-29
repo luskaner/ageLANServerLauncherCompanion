@@ -275,7 +275,7 @@ Before staring make sure to clone the repo with submodules and install `vcpkg` s
 
 ## Terms of Use
 
-You may only use the provided binaries if you use it in conjuction with [Age LAN Server](https://github.com/luskaner/ageLANServer) and comply with its [ToU](https://github.com/luskaner/ageLANServer?tab=readme-ov-file#terms-of-use).
+You may only use the provided binaries if you use it in conjuction with [Age LAN Server](https://github.com/luskaner/ageLANServer) and comply with its [terms](https://github.com/luskaner/ageLANServer?tab=readme-ov-file#additional-terms-of-use-for-the-downloadable-package).
 
 Disclaimer: This software is not affiliated with Xbox Game Studios, Microsoft Corporation, Forgotten Empires LLC,
 World's Edge LLC, or any other entity that is involved in the development of Age of Empires 2 Definitive Edition.
