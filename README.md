@@ -2,11 +2,13 @@
 
 Age LAN Server - Launcher Companion aims to provide DLL files to enhance or fix certain behaviours of the game to better be used with [Age LAN Server](https://github.com/luskaner/ageLANServer) launcher when using a custom game launcher.
 
-⚠️ **Repository is now on maintenance only due to lack of contributions/funding and having completed the main goals. Expect only updates to fix bugs and for dependencies/compiler.**
+ℹ️ **Repository is now on maintenance only due to lack of contributions/funding and having completed the main goals. Expect only updates to fix bugs and for dependencies/compiler.**
 
 ## Libraries
 
 * `Age2FakeOnline.dll` and `Age3FakeOnline.dll`: Fakes an internet always online behaviour. It is essential so that [Age Lan Server](https://github.com/luskaner/ageLANServer) can be used 100% offline. **AoE I does not need it**.
+* `AgeFakeHost.dll`: Fakes the resolving of hosts. It avoids the need for the launcher to modify the system-wide hosts (which requires admin permissions, affects all apps and so the changes need to be reverted). **Can be used for all games**.
+* *more to come...*
 
 ## Minimum system requirements
 
@@ -160,7 +162,7 @@ unlock_all=0
 # Other
 #1039811=Enhanced Graphics Pack
 ```
-5. Remove the starting `#` for the DLCs **you legally own** and are installed.
+5. Remove the starting `#` for the DLCs **you legally own** and are installed. Note that there is known bug that if you don't configure `unlock_all` as `1` you might not be able to create a lobby.
 6. Create `steam_settings\configs.user.ini` with notepad and copy the following text:
 ```ini
 [user::general]
@@ -251,8 +253,14 @@ ip_country=
    * `[Client]`:
       * `Executable`:  `Drive:\Path\To\steamclient_loader_x64.exe`.
 
-*Note: Up-to-date as of 19/01/2025 and using release `Release 2025 01 09`*.
+*Note: Up-to-date as of 03/11/2024 and using release `Release 2024 10 25`*.
 </details>
+
+## All games
+
+### Age Fake Host
+
+`AgeFakeHost.dll` Fakes the resolving of hosts. It avoids the need for the launcher to modify the system-wide hosts (which requires admin permissions, affects all apps and so the changes need to be reverted). To use it, you need to drop the dll file into the `dlls` specified in the configuration above (*as explained in AoE II and III, if you are using AoE I, configure the folder*). For launcher v1.8.0 (or higher) integration, you need to add to the proper game config file the `--overrideHosts={HostFilePath}` argument to the `Client.ExecutableArgs`.
 
 ## Development
 

@@ -11,7 +11,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Elementos de la solución",
 		Directory.Build.targets = Directory.Build.targets
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FakeOnline", "age3\FakeOnline\Age3FakeOnline.vcxproj", "{942B1424-6C69-4C2A-A4E1-3F2D7539C21B}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Age3FakeOnline", "age3\FakeOnline\Age3FakeOnline.vcxproj", "{942B1424-6C69-4C2A-A4E1-3F2D7539C21B}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AgeFakeHost", "age\FakeHost\AgeFakeHost.vcxproj", "{06363F74-DB00-48F2-8DD7-B70C9E67BA66}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{942B1424-6C69-4C2A-A4E1-3F2D7539C21B}.Debug|x64.Build.0 = Debug|x64
 		{942B1424-6C69-4C2A-A4E1-3F2D7539C21B}.Release|x64.ActiveCfg = Release|x64
 		{942B1424-6C69-4C2A-A4E1-3F2D7539C21B}.Release|x64.Build.0 = Release|x64
+		{06363F74-DB00-48F2-8DD7-B70C9E67BA66}.Debug|x64.ActiveCfg = Debug|x64
+		{06363F74-DB00-48F2-8DD7-B70C9E67BA66}.Debug|x64.Build.0 = Debug|x64
+		{06363F74-DB00-48F2-8DD7-B70C9E67BA66}.Release|x64.ActiveCfg = Release|x64
+		{06363F74-DB00-48F2-8DD7-B70C9E67BA66}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

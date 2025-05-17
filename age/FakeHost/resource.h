@@ -1,9 +1,8 @@
 //{{NO_DEPENDENCIES}}
-// Archivo de inclusión generado de Microsoft Visual C++.
-// Usado por Age3FakeOnline.rc
-//
+// Microsoft Visual C++ generated include file.
+// Used by AgeFakeHost.rc
 
-// Next default values for new objects
+// Valores predeterminados siguientes para nuevos objetos
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
