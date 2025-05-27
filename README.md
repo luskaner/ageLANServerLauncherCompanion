@@ -2,8 +2,6 @@
 
 Age LAN Server - Launcher Companion aims to provide DLL files to enhance or fix certain behaviours of the game to better be used with [Age LAN Server](https://github.com/luskaner/ageLANServer) launcher when using a custom game launcher.
 
-ℹ️ **Repository is now on maintenance only due to lack of contributions/funding and having completed the main goals. Expect only updates to fix bugs and for dependencies/compiler.**
-
 ## Libraries
 
 * `Age2FakeOnline.dll` and `Age3FakeOnline.dll`: Fakes an internet always online behaviour. It is essential so that [Age Lan Server](https://github.com/luskaner/ageLANServer) can be used 100% offline. **AoE I does not need it**.
