@@ -103,7 +103,7 @@ ip_country=
    * `[Client]`:
       * `Executable`:  `Drive:\Path\To\steamclient_loader_x64.exe`.
 
-*Note: Up-to-date as of 19/01/2025 and using release `Release 2025 01 09`*.
+*Note: Up-to-date as of 11/9/2025 and using release `release-2025_08_29`*.
     
 </details>
 
@@ -179,7 +179,7 @@ ip_country=
    * `[Client]`:
       * `Executable`:  `Drive:\Path\To\steamclient_loader_x64.exe`.
 
-*Note: Up-to-date as of 19/01/2025 and using release `Release 2025 01 09`*.
+*Note: Up-to-date as of 11/9/2025 and using release `release-2025_08_29`*.
 </details>
 
 #### Age of Empires III: Definitive Edition
@@ -251,7 +251,7 @@ ip_country=
    * `[Client]`:
       * `Executable`:  `Drive:\Path\To\steamclient_loader_x64.exe`.
 
-*Note: Up-to-date as of 03/11/2024 and using release `Release 2024 10 25`*.
+*Note: Up-to-date as of 11/9/2025 and using release `release-2025_08_29`*.
 </details>
 
 ## All games
