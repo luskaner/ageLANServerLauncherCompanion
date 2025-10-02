@@ -54,7 +54,7 @@ Here are the basic steps suposing you are using Windows:
    * `steamclient64.dll`
    * `ColdClientLoader.ini`
    * `steamclient_loader_x64.exe`
-4. Create the subdirectory `dlls` and `steam_settings` where the other files reside.
+4. Create the subdirectory `dlls`, `steam_settings` and `saves` where the other files reside.
 5. Follow game-specific steps.
 
 #### Age of Empires: Definitive Edition
@@ -97,6 +97,9 @@ account_steamid=
 language=
 # Choose from 'Alpha-2' country code: https://www.iban.com/country-codes or leave empty to be set as 'US'
 ip_country=
+
+[user::saves]
+local_save_path=saves
 ```
 5. Modify the fields according to the comments.
 6. Edit [Age LAN Server - Launcher](https://github.com/luskaner/ageLANServer/tree/main/launcher) `resources\config.aoe1.toml` and set:
@@ -172,6 +175,9 @@ account_steamid=
 language=
 # Choose from 'Alpha-2' country code: https://www.iban.com/country-codes or leave empty to be set as 'US'
 ip_country=
+
+[user::saves]
+local_save_path=saves
 ```
 7. Modify the fields according to the comments.
 8. Copy the `Age2...` DLLs you have download from here to `dlls` folder (*uncompressed*).
@@ -244,6 +250,9 @@ account_steamid=
 language=
 # Choose from 'Alpha-2' country code: https://www.iban.com/country-codes or leave empty to be set as 'US'
 ip_country=
+
+[user::saves]
+local_save_path=saves
 ```
 7. Modify the fields according to the comments.
 8. Copy the `Age3...` DLLs you have download from here to `dlls` folder (*uncompressed*).
