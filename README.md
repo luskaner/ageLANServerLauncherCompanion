@@ -265,6 +265,7 @@ local_save_path=saves
       * `Path`: `Drive:\Path\To\SteamLibrary\steamapps\common\AoE3DE`
 
 *Note: Up-to-date as of 11/9/2025 and using release `release-2025_08_29`*.
+</details>
 
 #### Age of Mythology: Retold
 
