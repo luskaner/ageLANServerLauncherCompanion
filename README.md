@@ -4,9 +4,10 @@ Age LAN Server - Launcher Companion aims to provide DLL files to enhance or fix 
 
 ## Libraries
 
-* `Age2FakeOnline.dll` and `Age3FakeOnline.dll`: Fakes an internet always online behaviour. It is essential so that [Age Lan Server](https://github.com/luskaner/ageLANServer) can be used 100% offline. **AoE I does not need it**.
+* `Age2FakeOnline.dll` and `Age3FakeOnline.dll`: Fakes an internet always online behaviour. It is essential so that [Age Lan Server](https://github.com/luskaner/ageLANServer) can be used without connected to the internet, but still connected to LAN. **AoE I and AoM: RT do not need it**.
 * `AgeFakeHost.dll`: Fakes the resolving of hosts. It avoids the need for the launcher to modify the system-wide hosts (which requires admin permissions, affects all apps and so the changes need to be reverted). **Can be used for all games**.
-* *more to come...*
+
+*Note: It is [suspected](https://github.com/luskaner/ageLANServerLauncherCompanion/issues/9) `Age3FakeOnline.dll` is not actually needed*.
 
 ## Minimum system requirements
 
@@ -55,7 +56,8 @@ Here are the basic steps suposing you are using Windows:
    * `ColdClientLoader.ini`
    * `steamclient_loader_x64.exe`
 4. Create the subdirectory `dlls`, `steam_settings` and `saves` where the other files reside.
-5. Follow game-specific steps.
+5. Copy into `dlls` the common ones you want.
+6. Follow game-specific steps.
 
 #### Age of Empires: Definitive Edition
 
@@ -163,7 +165,7 @@ unlock_all=0
 # Other
 #1039811=Enhanced Graphics Pack
 ```
-5. Remove the starting `#` for the DLCs **you legally own** and are installed. Note that there is known bug that if you don't configure `unlock_all` as `1` you might not be able to create a lobby.
+5. Remove the starting `#` for the DLCs **you legally own** and are installed. **Note that there is known bug that if you don't configure `unlock_all` as `1` you might not be able to create a lobby**.
 6. Create `steam_settings\configs.user.ini` with notepad and copy the following text:
 ```ini
 [user::general]
@@ -184,6 +186,7 @@ local_save_path=saves
 9. Edit [Age LAN Server - Launcher](https://github.com/luskaner/ageLANServer/tree/main/launcher) `resources\config.aoe2.toml` and set:
    * `[Client]`:
       * `Executable`:  `Drive:\Path\To\steamclient_loader_x64.exe`.
+      * `Path`: `Drive:\Path\To\SteamLibrary\steamapps\common\AoE2DE`
 
 *Note: Up-to-date as of 11/9/2025 and using release `release-2025_08_29`*.
 </details>
@@ -255,12 +258,93 @@ ip_country=
 local_save_path=saves
 ```
 7. Modify the fields according to the comments.
-8. Copy the `Age3...` DLLs you have download from here to `dlls` folder (*uncompressed*).
+8. Copy the `Age3...` DLLs you have download from here to `dlls` folder (*uncompressed*). Note that the *FakeOnline* might not actually be necessary.
 9. Edit [Age LAN Server - Launcher](https://github.com/luskaner/ageLANServer/tree/main/launcher) `resources\config.aoe3.toml` and set:
    * `[Client]`:
       * `Executable`:  `Drive:\Path\To\steamclient_loader_x64.exe`.
+      * `Path`: `Drive:\Path\To\SteamLibrary\steamapps\common\AoE3DE`
 
 *Note: Up-to-date as of 11/9/2025 and using release `release-2025_08_29`*.
+
+#### Age of Mythology: Retold
+
+<details>
+    <summary>Steps</summary>
+
+1. Modify `ColdClientLoader.ini` and set the following values:
+   * `[SteamClient]`:
+     * `Exe`:  `Drive:\Path\To\SteamLibrary\steamapps\common\Age of Mythology Retold\AoMRT_s.exe`.
+     * `AppId`: 1934680.
+   * `[Injection]`
+     * `DllsToInjectFolder`: `dlls`.
+2. Create `steam_settings\supported_languages.txt` with notepad and copy the following text as-is:
+```text
+english
+french
+italian
+german
+spanish
+danish
+dutch
+finnish
+greek
+japanese
+koreana
+norwegian
+polish
+brazilian
+portuguese
+russian
+schinese
+latam
+swedish
+thai
+tchinese
+turkish
+vietnamese
+czech
+hungarian
+arabic
+```
+3. Create `steam_settings\achievements.json` with notepad and copy the following text as-is:
+```json
+[{"name": "ACHIEVEMENT_ANNIHILATION"}, {"name": "ACHIEVEMENT_DEMOLITION"}, {"name": "ACHIEVEMENT_CREATING_A_MASTERPIECE"}, {"name": "ACHIEVEMENT_HORROR_UNLEASHED"}, {"name": "ACHIEVEMENT_I_BELIEVE_THEY_CAN_FLY"}, {"name": "ACHIEVEMENT_AUTO_EVERYTHING"}, {"name": "ACHIEVEMENT_BIG_BOOMER"}, {"name": "ACHIEVEMENT_CYCLOPEAN_MASONRY"}, {"name": "ACHIEVEMENT_AGE_AGAINST_THE_MACHINE"}, {"name": "ACHIEVEMENT_FIRST_BLOOD"}, {"name": "ACHIEVEMENT_BOXING_MATCH"}, {"name": "ACHIEVEMENT_ZEUS_EAT_TOWN_CENTER"}, {"name": "ACHIEVEMENT_POSEIDONS_REVOLT"}, {"name": "ACHIEVEMENT_CENTUM_CENTAURI"}, {"name": "ACHIEVEMENT_ANUBITTEN"}, {"name": "ACHIEVEMENT_A_HERO_IN_THE_MAKING"}, {"name": "ACHIEVEMENT_AND_SO_IT_BEGINS"}, {"name": "ACHIEVEMENT_TO_HADES_AND_BACK"}, {"name": "ACHIEVEMENT_OSIRIS_REBORN"}, {"name": "ACHIEVEMENT_THIS_IS_FOR_CHIRON"}, {"name": "ACHIEVEMENT_ARKANTOS_ASCENDED"}, {"name": "ACHIEVEMENT_INTO_THE_MINES"}, {"name": "ACHIEVEMENT_FREYRS_GIFT"}, {"name": "ACHIEVEMENT_NEW_WORLD_NEW_GODS"}, {"name": "ACHIEVEMENT_HONOR_TO_KASTOR"}, {"name": "ACHIEVEMENT_FAST_FOOD"}, {"name": "ACHIEVEMENT_NO_TIME_FOR_MORTALS"}, {"name": "ACHIEVEMENT_ALL_IN"}, {"name": "ACHIEVEMENT_HOPLITE_HERESY"}, {"name": "ACHIEVEMENT_HERSIR_YOUR_HONOR"}, {"name": "ACHIEVEMENT_PROWL_PATROL"}, {"name": "ACHIEVEMENT_TITANIC_TERROR"}, {"name": "ACHIEVEMENT_WRATH_OF_THE_GODS"}, {"name": "ACHIEVEMENT_CHONKERS"}, {"name": "ACHIEVEMENT_PRAISE_THE_SUN"}, {"name": "ACHIEVEMENT_PET_OF_SET"}, {"name": "ACHIEVEMENT_THORIUM_MINING"}, {"name": "ACHIEVEMENT_KRONOS_TELEPHONE_BOOTH"}, {"name": "ACHIEVEMENT_MINOAN_TENNIS"}, {"name": "ACHIEVEMENT_RIDE_OF_THE_VALKYRIES"}, {"name": "ACHIEVEMENT_CARE_AND_CALAMITY"}, {"name": "ACHIEVEMENT_BEASTLY_BULWARK"}, {"name": "ACHIEVEMENT_ANGER_PROBLEMS"}, {"name": "ACHIEVEMENT_NORSE_SPACE_PROGRAM"}, {"name": "ACHIEVEMENT_TERRIF_EYEING"}, {"name": "ACHIEVEMENT_OMNIVORE"}, {"name": "ACHIEVEMENT_CHIRONS_APPRENTICE"}, {"name": "ACHIEVEMENT_POWER_OF_THE_GODS"}, {"name": "ACHIEVEMENT_PREPARATION"}, {"name": "ACHIEVEMENT_LOST_TREASURE"}, {"name": "ACHIEVEMENT_AOTG_SLAYER"}, {"name": "ACHIEVEMENT_AOTG_BLESSED_BE_THE_LEGEND"}, {"name": "ACHIEVEMENT_AOTG_CHOSEN_BY_THE_GODS"}, {"name": "ACHIEVEMENT_AOTG_GODS_FAVORITE"}, {"name": "ACHIEVEMENT_AOTG_DEICIDE"}, {"name": "ACHIEVEMENT_AOTG_TRAVELER"}, {"name": "ACHIEVEMENT_AOTG_NOMAD"}, {"name": "ACHIEVEMENT_AOTG_UNDERDOG"}, {"name": "ACHIEVEMENT_AOTG_IRONSIDE"}, {"name": "ACHIEVEMENT_AOTG_VETERAN"}, {"name": "ACHIEVEMENT_AOTG_WAR_HERO"}, {"name": "ACHIEVEMENT_AOTG_THROUGH_THICK_AND_THIN"}, {"name": "ACHIEVEMENT_IMPERIAL_GARDEN"}, {"name": "ACHIEVEMENT_FORGED_FROM_CLAY"}, {"name": "ACHIEVEMENT_AGRICULTURAL_REVOLUTION"}, {"name": "ACHIEVEMENT_ARCHAIC_SHOT_PUT"}, {"name": "ACHIEVEMENT_BRINGING_ALL_KINDS_OF_HURT"}, {"name": "ACHIEVEMENT_THREE_KINGDOMS"}, {"name": "ACHIEVEMENT_TERRACOTTA_ARMY"}, {"name": "ACHIEVEMENT_BEAST_BUFFET"}, {"name": "ACHIEVEMENT_DONT_MESS_WITH_ME"}, {"name": "ACHIEVEMENT_SET_THE_WORLD_ON_FIRE"}, {"name": "ACHIEVEMENT_TENPIN_STRIKE"}, {"name": "ACHIEVEMENT_RAIN_OF_PAIN"}, {"name": "ACHIEVEMENT_EMBARRASSMENT_OF_RICHES"}, {"name": "ACHIEVEMENT_PICKUP_ARTIST"}, {"name": "ACHIEVEMENT_BECOME_IMMORTAL"}, {"name": "ACHIEVEMENT_PILLAR_OF_THE_COMMUNITY"}, {"name": "ACHIEVEMENT_ALL_YOUR_BASE_ARE_BELONG_TO_US"}, {"name": "ACHIEVEMENT_GOTTA_CATCH_EM_ALL"}, {"name": "ACHIEVEMENT_IT_DOESNT_LOOK_SCRATCHED"}, {"name": "ACHIEVEMENT_BURN_BABY_BURN"}, {"name": "ACHIEVEMENT_XUANYUAN_SWORD"}, {"name": "ACHIEVEMENT_INVINCIBLE_WARLORD"}, {"name": "ACHIEVEMENT_ETERNAL_REAPER"}, {"name": "ACHIEVEMENT_TYPHOON_SEASON"}, {"name": "ACHIEVEMENT_BUSHIDO_MASTER"}, {"name": "ACHIEVEMENT_CLASSICAL_CHAMPIONS"}, {"name": "ACHIEVEMENT_WHEEL_OF_MISFORTUNE"}, {"name": "ACHIEVEMENT_ITS_OVER_NINE_THOUSAND"}, {"name": "ACHIEVEMENT_THE_ONE_AND_ONI"}, {"name": "ACHIEVEMENT_THE_ULTIMATE_DISCOUNT"}, {"name": "ACHIEVEMENT_A_BLESSING_SENT_FROM_HEAVEN"}, {"name": "ACHIEVEMENT_PROVEN_WORTHY"}, {"name": "ACHIEVEMENT_CUT_OFF_THE_HEAD_OF_THE_SNAKE"}, {"name": "ACHIEVEMENT_EMERGENCY_RESPONSE"}]
+```
+4. Create `steam_settings\configs.app.ini` with notepad and copy the following text:
+```ini
+[app::dlcs]
+unlock_all=0
+# Expansions
+#2991170=Age of Mythology: Retold - Immortal Pillars
+#2991180=Age of Mythology: Retold - Heavenly Spear
+# Gods
+#2991190=Age Of Mythology: Retold - New Gods Pack: Freyr
+# Cosmetics
+#2991160=Age of Mythology: Retold - Legacy Deity Portrait Pack
+```
+5. Remove the starting `#` for the DLCs **you legally own** and are installed.
+6. Create `steam_settings\configs.user.ini` with notepad and copy the following text:
+```ini
+[user::general]
+# Fill your account name as you would normally see.
+account_name=
+# Fill with your real steamid or leave empty for it to be auto-generated.
+account_steamid=
+# Choose one from steam_settings\supported_languages.txt (described in https://partner.steamgames.com/doc/store/localization/languages) or leave empty to be set as 'english'
+language=
+# Choose from 'Alpha-2' country code: https://www.iban.com/country-codes or leave empty to be set as 'US'
+ip_country=
+
+[user::saves]
+local_save_path=saves
+```
+7. Modify the fields according to the comments.
+8. Edit [Age LAN Server - Launcher](https://github.com/luskaner/ageLANServer/tree/main/launcher) `resources\config.aoe3.toml` and set:
+   * `[Client]`:
+      * `Executable`:  `Drive:\Path\To\steamclient_loader_x64.exe`.
+      * `Path`: `Drive:\Path\To\SteamLibrary\steamapps\common\Age of Mythology Retold`
+
+*Note: Up-to-date as of 08/10/2025 and using release `release-2025_08_29`*.
 </details>
 
 ## All games
