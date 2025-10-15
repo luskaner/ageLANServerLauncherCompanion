@@ -131,7 +131,6 @@ italian
 german
 japanese
 koreana
-portuguese
 brazilian
 russian
 schinese
@@ -158,6 +157,7 @@ unlock_all=0
 #2805510=Age of Empires II: Definitive Edition - Victors and Vanquished
 #2805520=Age of Empires II: DE - Chronicles: Battle for Greece
 #3080080=Age of Empires II: DE - The Three Kingdoms
+#3793540=Age of Empires II: DE - Chronicles: Alexander the Great
 # Animated Icons
 #2672800=Age of Empires II: Definitive Edition – La Hire’s Dry Humor Animated Icons
 #2672810=Age of Empires II: Definitive Edition – Joan’s Marvelous Moving Masterpieces Animated Icons
