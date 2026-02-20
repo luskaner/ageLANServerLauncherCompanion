@@ -189,7 +189,7 @@ local_save_path=saves
       * `Executable`:  `Drive:\Path\To\steamclient_loader_x64.exe`.
       * `Path`: `Drive:\Path\To\SteamLibrary\steamapps\common\AoE2DE`
 
-*Note: Up-to-date as of 11/9/2025 and using release `release-2025_08_29`*.
+*Note: Up-to-date as of 20/02/2026 and using release `Release 2026 02 19`*.
 </details>
 
 #### Age of Empires III: Definitive Edition
