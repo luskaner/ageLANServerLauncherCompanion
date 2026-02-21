@@ -268,6 +268,95 @@ local_save_path=saves
 *Note: Up-to-date as of 11/9/2025 and using release `release-2025_08_29`*.
 </details>
 
+#### Age of Empires IV: Anniversary edition
+
+<details>
+    <summary>Steps</summary>
+
+1. Modify `ColdClientLoader.ini` and set the following values:
+   * `[SteamClient]`:
+     * `Exe`:  `Drive:\Path\To\SteamLibrary\steamapps\common\Age of Empires IV\RelicCardinal.exe`.
+     * `AppId`: 1466860.
+   * `[Injection]`
+     * `DllsToInjectFolder`: `dlls`.
+2. Create `steam_settings\supported_languages.txt` with notepad and copy the following text as-is:
+```text
+english
+french
+italian
+german
+spanish
+japanese
+koreana
+brazilian
+russian
+schinese
+latam
+tchinese
+turkish
+vietnamese
+czech
+danish
+dutch
+finnish
+greek
+hungarian
+norwegian
+polish
+portuguese
+swedish
+hindi
+malay
+```
+3. Create `steam_settings\achievements.json` with notepad and copy the following text as-is:
+```json
+[{"name": "Achievement\\A008_Cpg_Complete_All"}, {"name": "Achievement\\A004_Cpg_Complete_Norman"}, {"name": "Achievement\\A005_Cpg_Complete_Hundred"}, {"name": "Achievement\\A007_Cpg_Complete_Moscow"}, {"name": "Achievement\\A006_Cpg_Complete_Mongol"}, {"name": "Achievement\\A009_Counter_Raider"}, {"name": "Achievement\\A056_Civ_English"}, {"name": "Achievement\\A027_Mastery_Eng"}, {"name": "Achievement\\A028_Mastery_Fre"}, {"name": "Achievement\\A029_Mastery_Hre"}, {"name": "Achievement\\A030_Mastery_Mon"}, {"name": "Achievement\\A031_Mastery_Rus"}, {"name": "Achievement\\A032_Mastery_Sul"}, {"name": "Achievement\\A033_Mastery_Chi"}, {"name": "Achievement\\A034_Mastery_Abb"}, {"name": "Achievement\\A035_Mastery_All"}, {"name": "Achievement\\A059_Civ_French"}, {"name": "Achievement\\A067_Civ_Mongol"}, {"name": "Achievement\\A068_Civ_Mongol"}, {"name": "Achievement\\A069_Civ_Mongol"}, {"name": "Achievement\\A070_Civ_Mongol"}, {"name": "Achievement\\A060_Civ_French"}, {"name": "Achievement\\A061_Civ_French"}, {"name": "Achievement\\A062_Civ_French"}, {"name": "Achievement\\A063_Civ_Rus"}, {"name": "Achievement\\A064_Civ_Rus"}, {"name": "Achievement\\A065_Civ_Rus"}, {"name": "Achievement\\A066_Civ_Rus"}, {"name": "Achievement\\A079_Civ_Chinese"}, {"name": "Achievement\\A081_Civ_Chinese"}, {"name": "Achievement\\A082_Civ_Chinese"}, {"name": "Achievement\\A080_Civ_Chinese"}, {"name": "Achievement\\A075_Civ_Sultanate"}, {"name": "Achievement\\A076_Civ_Sultanate"}, {"name": "Achievement\\A077_Civ_Sultanate"}, {"name": "Achievement\\A078_Civ_Sultanate"}, {"name": "Achievement\\A051_Civ_Abbasid"}, {"name": "Achievement\\A052_Civ_Abbasid"}, {"name": "Achievement\\A053_Civ_Abbasid"}, {"name": "Achievement\\A054_Civ_Abbasid"}, {"name": "Achievement\\A071_Civ_Hre"}, {"name": "Achievement\\A072_Civ_Hre"}, {"name": "Achievement\\A073_Civ_Hre"}, {"name": "Achievement\\A038_Game_Mode"}, {"name": "Achievement\\A039_Game_Mode"}, {"name": "Achievement\\A040_Game_Mode"}, {"name": "Achievement\\A041_Game_Mode"}, {"name": "Achievement\\A042_Game_Mode"}, {"name": "Achievement\\A043_Game_Mode"}, {"name": "Achievement\\A083_Gameplay_Moment"}, {"name": "Achievement\\A084_Gameplay_Moment"}, {"name": "Achievement\\A086_Gameplay_Moment"}, {"name": "Achievement\\A087_Gameplay_Moment"}, {"name": "Achievement\\A047_Vs_Ai"}, {"name": "Achievement\\A048_Vs_Ai"}, {"name": "Achievement\\A049_Vs_Ai"}, {"name": "Achievement\\A050_Vs_Ai"}, {"name": "Achievement\\A025_Mastery_Training"}, {"name": "Achievement\\A026_Mastery_First"}, {"name": "Achievement\\A055_Civ_English"}, {"name": "Achievement\\A057_Civ_English"}, {"name": "Achievement\\A058_Civ_English"}, {"name": "Achievement\\A020_Cpg_Mon"}, {"name": "Achievement\\A085_Gameplay_Moment"}, {"name": "Achievement\\A019_Cpg_Mon"}, {"name": "Achievement\\A017_Cpg_Mon"}, {"name": "Achievement\\A018_Cpg_Mon"}, {"name": "Achievement\\A010_Cpg_Norman"}, {"name": "Achievement\\A011_Cpg_Norman"}, {"name": "Achievement\\A044_Aow_Medal"}, {"name": "Achievement\\A045_Aow_Medal"}, {"name": "Achievement\\A046_Aow_Medal"}, {"name": "Achievement\\A088_Misc_Feature"}, {"name": "Achievement\\A089_Misc_Feature"}, {"name": "Achievement\\A090_Misc_Feature"}, {"name": "Achievement\\A036_Misc_Feature"}, {"name": "Achievement\\A012_Cpg_Norman"}, {"name": "Achievement\\A021_Cpg_Rus"}, {"name": "Achievement\\A022_Cpg_Rus"}, {"name": "Achievement\\A023_Cpg_Rus"}, {"name": "Achievement\\A024_Cpg_Rus"}, {"name": "Achievement\\A013_Cpg_Hundred"}, {"name": "Achievement\\A014_Cpg_Hundred"}, {"name": "Achievement\\A015_Cpg_Hundred"}, {"name": "Achievement\\A016_Cpg_Hundred"}, {"name": "Achievement\\A001_Mission_Zero"}, {"name": "Achievement\\A002_Mission_Zero"}, {"name": "Achievement\\A003_Mission_Zero"}, {"name": "Achievement\\A074_Civ_Hre"}, {"name": "Achievement\\A091_Civ_Ottoman"}, {"name": "Achievement\\A092_Civ_Ottoman"}, {"name": "Achievement\\A109_Civ_Ottoman"}, {"name": "Achievement\\A102_Civ_Malian"}, {"name": "Achievement\\A094_Civ_Ottoman"}, {"name": "Achievement\\A106_Civ_Malian"}, {"name": "Achievement\\A098_Civ_Ottoman"}, {"name": "Achievement\\A108_Civ_Malian"}, {"name": "Achievement\\A100_Civ_Malian"}, {"name": "Achievement\\A097_Civ_Ottoman"}, {"name": "Achievement\\A096_Civ_Ottoman"}, {"name": "Achievement\\A105_Civ_Malian"}, {"name": "Achievement\\A104_Civ_Malian"}, {"name": "Achievement\\A093_Civ_Ottoman"}, {"name": "Achievement\\A095_Civ_Ottoman"}, {"name": "Achievement\\A099_Civ_Malian"}, {"name": "Achievement\\A101_Civ_Malian"}, {"name": "Achievement\\A103_Civ_Malian"}, {"name": "Achievement\\A107_Civ_Ottoman"}, {"name": "Achievement\\A110_Civ_Malian"}, {"name": "Achievement\\A111_Civ_Byz"}, {"name": "Achievement\\A112_Civ_Byz"}, {"name": "Achievement\\A113_Civ_Byz"}, {"name": "Achievement\\A114_Civ_Byz"}, {"name": "Achievement\\A115_Civ_Byz"}, {"name": "Achievement\\A116_Civ_Byz"}, {"name": "Achievement\\A117_Civ_Byz"}, {"name": "Achievement\\A118_Civ_Byz"}, {"name": "Achievement\\A127_Cpg_Abb"}, {"name": "Achievement\\A128_Cpg_Abb"}, {"name": "Achievement\\A129_Cpg_Abb"}, {"name": "Achievement\\A130_Cpg_Abb"}, {"name": "Achievement\\A131_Cpg_Abb"}, {"name": "Achievement\\A119_Civ_Jpn"}, {"name": "Achievement\\A120_Civ_Jpn"}, {"name": "Achievement\\A121_Civ_Jpn"}, {"name": "Achievement\\A122_Civ_Jpn"}, {"name": "Achievement\\A123_Civ_Jpn"}, {"name": "Achievement\\A124_Civ_Jpn"}, {"name": "Achievement\\A125_Civ_Jpn"}, {"name": "Achievement\\A126_Civ_Jpn"}, {"name": "Achievement\\A132_Civ_Templar"}, {"name": "Achievement\\A133_Civ_Templar"}, {"name": "Achievement\\A134_Civ_Templar"}, {"name": "Achievement\\A135_Civ_Templar"}, {"name": "Achievement\\A136_Civ_Templar"}, {"name": "Achievement\\A137_Civ_Lancaster"}, {"name": "Achievement\\A138_Civ_Lancaster"}, {"name": "Achievement\\A139_Civ_Lancaster"}, {"name": "Achievement\\A140_Civ_Lancaster"}, {"name": "Achievement\\A141_Civ_Lancaster"}, {"name": "Achievement\\A142_Hb"}, {"name": "Achievement\\A143_Hb"}, {"name": "Achievement\\A144_Hb"}, {"name": "Achievement\\A145_Hb"}, {"name": "Achievement\\A146_Hb"}, {"name": "Achievement\\A147_Crucible"}, {"name": "Achievement\\A148_Crucible"}, {"name": "Achievement\\A149_Crucible"}, {"name": "Achievement\\A150_Crucible"}, {"name": "Achievement\\A151_Civ_Tug"}, {"name": "Achievement\\A152_Civ_Tug"}, {"name": "Achievement\\A153_Civ_Tug"}, {"name": "Achievement\\A154_Civ_Tug"}, {"name": "Achievement\\A155_Civ_Mac"}, {"name": "Achievement\\A156_Civ_Mac"}, {"name": "Achievement\\A157_Civ_Mac"}, {"name": "Achievement\\A158_Civ_Mac"}, {"name": "Achievement\\A159_Civ_Sen"}, {"name": "Achievement\\A160_Civ_Sen"}, {"name": "Achievement\\A161_Civ_Sen"}, {"name": "Achievement\\A162_Civ_Sen"}, {"name": "Achievement\\A163_Civ_Gol"}, {"name": "Achievement\\A164_Civ_Gol"}, {"name": "Achievement\\A165_Civ_Gol"}, {"name": "Achievement\\A166_Civ_Gol"}]
+```
+4. Create `steam_settings\configs.app.ini` with notepad and copy the following text:
+```ini
+[app::dlcs]
+unlock_all=0
+# Expansions
+#1959430=Age of Empires IV: The Sultans Ascend
+#3144890=Age of Empires IV: Knights of Cross and Rose
+#3067190=Age of Empires IV: Dynasties of the East
+# Digital Deluxe
+#1668570=Age of Empires IV - Digital Deluxe Edition Content
+#2131250=Age of Empires IV: Digital Deluxe Upgrade Pack
+# Other
+#1779350=CC Gift
+#1668560=Age of Empires IV - 4K HDR Video Pack
+```
+5. Remove the starting `#` for the DLCs **you legally own** and are installed.
+6. Create `steam_settings\configs.user.ini` with notepad and copy the following text:
+```ini
+[user::general]
+# Fill your account name as you would normally see.
+account_name=
+# Fill with your real steamid or leave empty for it to be auto-generated.
+account_steamid=
+# Choose one from steam_settings\supported_languages.txt (described in https://partner.steamgames.com/doc/store/localization/languages) or leave empty to be set as 'english'
+language=
+# Choose from 'Alpha-2' country code: https://www.iban.com/country-codes or leave empty to be set as 'US'
+ip_country=
+
+[user::saves]
+local_save_path=saves
+```
+7. Modify the fields according to the comments.
+8. Create `steam_settings\configs.main.ini` with notepad and copy the following text:
+```ini
+[main::connectivity]
+disable_lan_only=1
+```
+9. Edit [Age LAN Server - Launcher](https://github.com/luskaner/ageLANServer/tree/main/launcher) `resources\config.age4.toml` and set:
+   * `[Client]`:
+      * `Executable`:  `Drive:\Path\To\steamclient_loader_x64.exe`.
+10. This game has additional protections and you will need a way to bypass them.
+
+*Note: Up-to-date as of 21/02/2026 and using release `Release 2026_02_19`*.
+</details>
+
 #### Age of Mythology: Retold
 
 <details>
