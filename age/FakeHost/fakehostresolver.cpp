@@ -17,7 +17,8 @@ int WINAPI Mine_GetAddrInfo(
 ) {
     int ret = Real_GetAddrInfo(pNodeName, pServiceName, pHints, ppResult);
     std::string hostName = pNodeName;
-    std::transform(hostName.begin(), hostName.end(), hostName.begin(), ::tolower);
+    std::transform(hostName.begin(), hostName.end(), hostName.begin(),
+        [](char c) { return static_cast<char>(::tolower(static_cast<unsigned char>(c))); });
 
     auto it = HostIpMap.find(hostName);
     if (it != HostIpMap.end()) {
