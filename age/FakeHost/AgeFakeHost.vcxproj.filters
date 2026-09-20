@@ -27,6 +27,12 @@
     <ClInclude Include="fakehostresolver.h">
       <Filter>Headers</Filter>
     </ClInclude>
+    <ClInclude Include="certreader.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="fakecaresolver.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
     <ClInclude Include="resource.h">
       <Filter>Headers</Filter>
     </ClInclude>
@@ -42,6 +48,12 @@
       <Filter>Implementation</Filter>
     </ClCompile>
     <ClCompile Include="fakehostresolver.cpp">
+      <Filter>Implementation</Filter>
+    </ClCompile>
+    <ClCompile Include="certreader.cpp">
+      <Filter>Implementation</Filter>
+    </ClCompile>
+    <ClCompile Include="fakecaresolver.cpp">
       <Filter>Implementation</Filter>
     </ClCompile>
   </ItemGroup>

@@ -89,6 +89,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="certreader.h" />
+    <ClInclude Include="fakecaresolver.h" />
     <ClInclude Include="fakehostresolver.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="hostreader.h" />
@@ -96,7 +98,9 @@
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="certreader.cpp" />
     <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="fakecaresolver.cpp" />
     <ClCompile Include="fakehostresolver.cpp" />
     <ClCompile Include="hostreader.cpp" />
     <ClCompile Include="pch.cpp">

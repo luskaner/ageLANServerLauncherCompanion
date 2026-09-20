@@ -12,9 +12,11 @@ int ReadHostsFile() {
 			for (int i = 1; i < argc; ++i) {
                 if (wcsncmp(argv[i], L"--overrideHosts=", wcslen(L"--overrideHosts=")) == 0) {
                     std::wstring hostsFilePath = argv[i] + 16;
-                    std::string hostsFilePathStr(hostsFilePath.begin(), hostsFilePath.end());
                     LocalFree(argv);
-                    std::ifstream hostsFile(hostsFilePathStr);                    
+                    // Open via the wide path so non-ASCII characters survive;
+                    // a narrow ifstream would reinterpret UTF-8 bytes as ANSI
+                    // (CP_ACP) and fail to open.
+                    std::ifstream hostsFile{std::filesystem::path(hostsFilePath)};
                     if (hostsFile.is_open()) {
                         std::string line;
                         while (std::getline(hostsFile, line)) {
@@ -43,7 +45,8 @@ int ReadHostsFile() {
                                 if (iss >> ip) {
                                     while (iss >> host) {
                                         std::string lowerHost = host;
-                                        std::transform(lowerHost.begin(), lowerHost.end(), lowerHost.begin(), ::tolower);
+                                        std::transform(lowerHost.begin(), lowerHost.end(), lowerHost.begin(),
+                                            [](char c) { return static_cast<char>(::tolower(static_cast<unsigned char>(c))); });
                                         HostIpMap[lowerHost] = ip;
                                     }
                                 }
