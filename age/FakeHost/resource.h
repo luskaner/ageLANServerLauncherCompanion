@@ -2,7 +2,7 @@
 // Microsoft Visual C++ generated include file.
 // Used by AgeFakeHost.rc
 
-// Valores predeterminados siguientes para nuevos objetos
+// Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
