@@ -1,12 +1,12 @@
 #pragma once
 
-// File logging activo solo en builds DEBUG.
+// File logging is active only in DEBUG builds.
 //
-// - En Debug (_DEBUG definido) los logs se escriben en un fichero con el mismo
-//   nombre de la DLL pero extension .log, ubicado junto a la DLL
-//   (p. ej. AgeFakeHost.dll -> AgeFakeHost.log), ademas de OutputDebugString.
-// - En Release (_DEBUG no definido) DEBUG_LOG no genera codigo, no evalua sus
-//   argumentos y no crea ningun fichero (coste cero).
+// - In Debug (_DEBUG defined) log lines are written to a file that has the same
+//   name as the DLL but a .log extension, located next to the DLL
+//   (e.g. Age2FakeOnline.dll -> Age2FakeOnline.log), plus OutputDebugString.
+// - In Release (_DEBUG not defined) DEBUG_LOG generates no code, does not
+//   evaluate its arguments, and creates no file (zero cost).
 
 #ifdef _DEBUG
 
@@ -19,9 +19,9 @@ void DebugLogWrite(const char* func, const char* fmt, ...);
 
 #define DEBUG_LOG(fmt, ...) DebugLogWrite(__FUNCTION__, fmt, ##__VA_ARGS__)
 
-// Helpers solo-DEBUG para volcar valores en los logs. Solo se usan dentro de
-// argumentos de DEBUG_LOG, asi que en Release (macro a ((void)0)) no se
-// compilan ni se llaman.
+// DEBUG-only helpers for dumping values into log lines. They are only used
+// inside DEBUG_LOG arguments, so in Release (macro expanded to ((void)0))
+// they are neither compiled nor called.
 inline std::string DbgNarrowW(const wchar_t* ws) {
     if (ws == nullptr) {
         return "(null)";

@@ -10,29 +10,29 @@
 #include <string>
 #include <vector>
 
-// Logging por fichero usando Win32 directo (CreateFileW/WriteFile), no la CRT.
+// File logging using raw Win32 (CreateFileW/WriteFile), not the CRT.
 //
-// Motivacion: el DLL se inyecta con el proceso todavia suspendido y DllMain se
-// ejecuta bajo el loader lock, momento en el que la CRT del host aun no ha
-// terminado de inicializarse. std::ofstream puede fallar ahi de forma silenciosa
-// (no lanza, no reporta error), por lo que aqui usamos CreateFileW/WriteFile,
-// registramos el GetLastError exacto de cada apertura y ademas escribimos un
-// fichero "canary" en %TEMP% para poder confirmar, sin debugger, que la
-// inicializacion se ejecuto y donde intento abrir cada log.
+// Rationale: the DLL is injected while the process is still suspended and DllMain
+// runs under the loader lock, at which point the host CRT may not have finished
+// initializing. std::ofstream can fail silently there (no exception thrown, no
+// error reported), so here we use CreateFileW/WriteFile, record the exact
+// GetLastError of every open, and also write a "canary" file in %TEMP% so we can
+// confirm, without a debugger, that initialization ran and where each log was
+// attempted.
 //
-// Rutas en orden de preferencia:
-//   1. <directorio de la DLL>\<mismo nombre>.log
-//   2. %TEMP%\<mismo nombre>.log
-//   3. %USERPROFILE%\<mismo nombre>.log (el proceso del juego siempre puede
-//      escribir en el perfil del usuario, p. ej. C:\Users\<usuario>\)
-// La salida se duplica siempre con OutputDebugString.
+// Paths in order of preference:
+//   1. <DLL directory>\<same name>.log
+//   2. %TEMP%\<same name>.log
+//   3. %USERPROFILE%\<same name>.log (the game process can always write to the
+//      user profile, e.g. C:\Users\<user>\)
+// Output is always mirrored to OutputDebugString.
 
 namespace {
     CRITICAL_SECTION g_cs = {};
     bool g_csReady = false;
-    HANDLE g_hFile = INVALID_HANDLE_VALUE;      // junto a la DLL
-    HANDLE g_hTempFile = INVALID_HANDLE_VALUE;  // fallback en %TEMP%
-    HANDLE g_hHomeFile = INVALID_HANDLE_VALUE;  // fallback en %USERPROFILE%
+    HANDLE g_hFile = INVALID_HANDLE_VALUE;      // next to the DLL
+    HANDLE g_hTempFile = INVALID_HANDLE_VALUE;  // fallback in %TEMP%
+    HANDLE g_hHomeFile = INVALID_HANDLE_VALUE;  // fallback in %USERPROFILE%
     bool g_initialized = false;
 
     void Lock() {
@@ -174,9 +174,9 @@ void DebugLogInit(HMODULE hModule) {
         }
     }
 
-    // Canary: existe en cuanto DebugLogInit corre y el proceso puede escribir,
-    // mostrando las rutas y los codigos de error reales. Se intenta en %TEMP%
-    // y en %USERPROFILE%.
+    // Canary: present as soon as DebugLogInit runs and the process can write,
+    // showing the real paths and error codes. It is tried in %TEMP% and in
+    // %USERPROFILE%.
     char canaryLine[3072] = "";
     snprintf(canaryLine, sizeof(canaryLine),
         "[pid=%lu] DebugLogInit module='%ls' primary='%ls' err=%lu temp='%ls' err=%lu home='%ls' err=%lu\n",
