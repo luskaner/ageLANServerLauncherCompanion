@@ -18,60 +18,63 @@ jobs:
         submodules: true
 
     - uses: lukka/run-vcpkg@v10
-    
+
     - uses: microsoft/setup-msbuild@v2
 
-    - run: msbuild /m /p:Configuration=Release    
+    - name: Build Release
+      run: msbuild /m /p:Configuration=Release
+
+    - name: Build Debug
+      run: msbuild /m /p:Configuration=Debug
 
     - uses: crazy-max/ghaction-import-gpg@v6
       with:
         gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
         passphrase: ${{ secrets.PASSPHRASE }}
 
-    - name: Set Env
+    - name: Package DLL files
+      shell: pwsh
       run: |
-        echo "GITHUB_RELEASE_FOLDER=$(echo 'x64/Release')" >> $env:GITHUB_ENV
+        $repo = "${{ github.event.repository.name }}"
+        $tag = "${{ github.ref_name }}"
+        $configs = @(
+          @{ Variant = 'release'; Folder = 'x64/Release' },
+          @{ Variant = 'debug';   Folder = 'x64/Debug' }
+        )
+        foreach ($c in $configs) {
+          $folder = $c.Folder
 
-    - name: Rename DLL files
-      run: |
-        $files = Get-ChildItem -Path "${{ env.GITHUB_RELEASE_FOLDER }}" -Filter *.dll
-        foreach ($file in $files) {          
-          $fileVersion = (Get-Item $file).VersionInfo.FileVersion
-          $newName = "${{ github.event.repository.name }}_$($file.BaseName)_$($fileVersion).dll"
-          Rename-Item -Path $file.FullName -NewName $newName
+          foreach ($file in (Get-ChildItem -Path $folder -Filter *.dll)) {
+            $fileVersion = (Get-Item $file.FullName).VersionInfo.FileVersion
+            $newName = "${repo}_$($file.BaseName)_$($c.Variant)_$fileVersion.dll"
+            Rename-Item -Path $file.FullName -NewName $newName
+          }
+
+          foreach ($file in (Get-ChildItem -Path $folder -Filter *.dll)) {
+            Compress-Archive -Path $file.FullName -DestinationPath "$folder\$($file.BaseName).zip"
+          }
+
+          Compress-Archive -Path "$folder\*.dll" -DestinationPath "$folder\${repo}_full_$($c.Variant)_$tag.zip"
+
+          $hashes = @()
+          foreach ($file in (Get-ChildItem -Path $folder -Filter *.zip)) {
+            $hash = Get-FileHash -Path $file.FullName -Algorithm SHA256
+            $hashes += "$($hash.Hash) $($file.Name)"
+          }
+          $sumsFile = "$folder\${repo}_checksums_$($c.Variant)_$tag.txt"
+          $hashes | Out-File -FilePath $sumsFile
+          gpg --output "$sumsFile.sig" --detach-sign $sumsFile
         }
-
-    - name: Compress DLL files
-      run: |
-        $files = Get-ChildItem -Path "${{ env.GITHUB_RELEASE_FOLDER }}" -Filter *.dll
-        foreach ($file in $files) {
-          Compress-Archive -Path $file.FullName -DestinationPath "${{ env.GITHUB_RELEASE_FOLDER }}\$($file.BaseName).zip"
-        }
-
-    - name: Compress DLL files into one ZIP
-      run: |
-        Compress-Archive -Path "${{ env.GITHUB_RELEASE_FOLDER }}\*.dll" -DestinationPath "${{ env.GITHUB_RELEASE_FOLDER }}\${{ github.event.repository.name }}_full_${{ github.ref_name }}.zip"
-
-    - name: Generate checksums
-      run: |
-        $files = Get-ChildItem -Path "${{ env.GITHUB_RELEASE_FOLDER }}" -Filter *.zip
-        $hashes = @()
-        foreach ($file in $files) {
-          $hash = Get-FileHash -Path $file.FullName -Algorithm SHA256
-          $hashes += "$($hash.Hash) $($file.Name)"
-        }
-        $hashes | Out-File -FilePath "${{ env.GITHUB_RELEASE_FOLDER }}\${{ github.event.repository.name }}_checksums_${{ github.ref_name }}.txt"
-
-    - name: Sign checksums
-      run: |
-        gpg --output "${{ env.GITHUB_RELEASE_FOLDER }}\${{ github.event.repository.name }}_checksums_${{ github.ref_name }}.txt.sig" --detach-sign "${{ env.GITHUB_RELEASE_FOLDER }}\${{ github.event.repository.name }}_checksums_${{ github.ref_name }}.txt"
 
     - uses: softprops/action-gh-release@v2
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         files: |
-          ${{ env.GITHUB_RELEASE_FOLDER }}/*.zip
-          ${{ env.GITHUB_RELEASE_FOLDER }}/*_checksums_*.txt
-          ${{ env.GITHUB_RELEASE_FOLDER }}/*_checksums_*.sig
+          x64/Release/*.zip
+          x64/Release/*_checksums_*.txt
+          x64/Release/*_checksums_*.sig
+          x64/Debug/*.zip
+          x64/Debug/*_checksums_*.txt
+          x64/Debug/*_checksums_*.sig
         draft: true
         generate_release_notes: true

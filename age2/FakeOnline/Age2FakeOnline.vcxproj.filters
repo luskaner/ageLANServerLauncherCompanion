@@ -7,6 +7,9 @@
     <ClCompile Include="dllmain.cpp">
       <Filter>Implementation</Filter>
     </ClCompile>
+    <ClCompile Include="debuglog.cpp">
+      <Filter>Implementation</Filter>
+    </ClCompile>
     <ClCompile Include="fakecomresolver.cpp">
       <Filter>Implementation</Filter>
     </ClCompile>
@@ -16,6 +19,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="fakecomresolver.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="debuglog.h">
       <Filter>Headers</Filter>
     </ClInclude>
     <ClInclude Include="fakeonline.h">

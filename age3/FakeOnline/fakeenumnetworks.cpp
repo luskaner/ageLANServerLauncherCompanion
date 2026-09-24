@@ -1,4 +1,5 @@
 #include "pch.h"
+#include "debuglog.h"
 #include "fakeenumnetworks.h"
 #include "fakenetwork.h"
 #include <string>
@@ -27,27 +28,44 @@ ULONG STDMETHODCALLTYPE FakeEnumNetworks::Release()  {
 }
 
 HRESULT STDMETHODCALLTYPE FakeEnumNetworks::Next(ULONG celt, INetwork** rgelt, ULONG* pceltFetched)  {
+    DEBUG_LOG("Enum::Next enter celt=%lu out=%p fetched=%p", static_cast<unsigned long>(celt), (void*)rgelt, (void*)pceltFetched);
     HRESULT res = m_pOriginal->Next(celt, rgelt, pceltFetched);
+    ULONG fetched = (pceltFetched != nullptr) ? *pceltFetched : 0;
+    INetwork* raw = (SUCCEEDED(res) && rgelt != nullptr) ? *rgelt : nullptr;
+    DEBUG_LOG("Enum::Next exit hr=0x%08lx fetched=%lu raw=%p", static_cast<unsigned long>(res), static_cast<unsigned long>(fetched), (void*)raw);
+    if (FAILED(res) || rgelt == nullptr || *rgelt == nullptr) {
+        DEBUG_LOG("Enum::Next: nothing to wrap");
+        return res;
+    }
     INetwork* pOriginalINetwork = *rgelt;
     FakeNetwork* proxy = new FakeNetwork(pOriginalINetwork);
     *rgelt = proxy;
+    DEBUG_LOG("Enum::Next: wrapped %p -> %p", (void*)pOriginalINetwork, (void*)proxy);
     return res;
 }
 
 HRESULT STDMETHODCALLTYPE FakeEnumNetworks::Skip(ULONG celt)  {
-    return m_pOriginal->Skip(celt);
+    HRESULT hr = m_pOriginal->Skip(celt);
+    DEBUG_LOG("Enum::Skip celt=%lu hr=0x%08lx", static_cast<unsigned long>(celt), static_cast<unsigned long>(hr));
+    return hr;
 }
 
 HRESULT STDMETHODCALLTYPE FakeEnumNetworks::Reset()  {
-    return m_pOriginal->Reset();
+    HRESULT hr = m_pOriginal->Reset();
+    DEBUG_LOG("Enum::Reset hr=0x%08lx", static_cast<unsigned long>(hr));
+    return hr;
 }
 
 HRESULT STDMETHODCALLTYPE FakeEnumNetworks::Clone(IEnumNetworks** ppenum)  {
-    return m_pOriginal->Clone(ppenum);
+    HRESULT hr = m_pOriginal->Clone(ppenum);
+    DEBUG_LOG("Enum::Clone hr=0x%08lx out=%p", static_cast<unsigned long>(hr), (void*)(ppenum != nullptr ? *ppenum : nullptr));
+    return hr;
 }
 
 HRESULT STDMETHODCALLTYPE FakeEnumNetworks::get__NewEnum(IEnumVARIANT** ppEnum)  {
-    return m_pOriginal->get__NewEnum(ppEnum);
+    HRESULT hr = m_pOriginal->get__NewEnum(ppEnum);
+    DEBUG_LOG("Enum::get__NewEnum hr=0x%08lx out=%p", static_cast<unsigned long>(hr), (void*)(ppEnum != nullptr ? *ppEnum : nullptr));
+    return hr;
 }
 
 HRESULT STDMETHODCALLTYPE FakeEnumNetworks::GetTypeInfoCount(UINT* pctinfo)  {

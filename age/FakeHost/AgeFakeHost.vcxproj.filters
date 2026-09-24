@@ -30,6 +30,9 @@
     <ClInclude Include="certreader.h">
       <Filter>Headers</Filter>
     </ClInclude>
+    <ClInclude Include="debuglog.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
     <ClInclude Include="fakecaresolver.h">
       <Filter>Headers</Filter>
     </ClInclude>
@@ -51,6 +54,9 @@
       <Filter>Implementation</Filter>
     </ClCompile>
     <ClCompile Include="certreader.cpp">
+      <Filter>Implementation</Filter>
+    </ClCompile>
+    <ClCompile Include="debuglog.cpp">
       <Filter>Implementation</Filter>
     </ClCompile>
     <ClCompile Include="fakecaresolver.cpp">
