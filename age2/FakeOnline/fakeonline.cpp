@@ -1,4 +1,5 @@
 #include "pch.h"
+#include "debuglog.h"
 #include "fakeonline.h"
 
 FakeNetworkListManager::FakeNetworkListManager(INetworkListManager* original) : original(original) {}
@@ -20,16 +21,24 @@ HRESULT STDMETHODCALLTYPE FakeNetworkListManager::Invoke(DISPID dispIdMember, RE
 }
 
 HRESULT STDMETHODCALLTYPE FakeNetworkListManager::get_IsConnectedToInternet(VARIANT_BOOL* pbIsConnected) {
-    return original->get_IsConnected(pbIsConnected);
+    HRESULT hr = original->get_IsConnected(pbIsConnected);
+    short val = (SUCCEEDED(hr) && pbIsConnected != nullptr) ? *pbIsConnected : 0;
+    DEBUG_LOG("NLM::get_IsConnectedToInternet hr=0x%08lx val=%d", static_cast<unsigned long>(hr), (int)val);
+    return hr;
 }
 
 HRESULT STDMETHODCALLTYPE FakeNetworkListManager::get_IsConnected(VARIANT_BOOL* pbIsConnected) {
-	*pbIsConnected = VARIANT_TRUE;
+    if (pbIsConnected != nullptr) {
+        *pbIsConnected = VARIANT_TRUE;
+    }
+    DEBUG_LOG("NLM::get_IsConnected -> TRUE (forced)");
 	return S_OK;
 }
 
 HRESULT STDMETHODCALLTYPE FakeNetworkListManager::QueryInterface(REFIID riid, void** ppvObject) {
-    return original->QueryInterface(riid, ppvObject);
+    HRESULT hr = original->QueryInterface(riid, ppvObject);
+    DEBUG_LOG("NLM::QueryInterface iid=%s hr=0x%08lx out=%p", DbgGuid(riid).c_str(), static_cast<unsigned long>(hr), (void*)(ppvObject != nullptr ? *ppvObject : nullptr));
+    return hr;
 }
 
 ULONG STDMETHODCALLTYPE FakeNetworkListManager::AddRef() {
@@ -41,23 +50,34 @@ ULONG STDMETHODCALLTYPE FakeNetworkListManager::Release() {
 }
 
 HRESULT STDMETHODCALLTYPE FakeNetworkListManager::GetNetworks(NLM_ENUM_NETWORK Flags, IEnumNetworks** ppEnumNetwork) {
-    return original->GetNetworks(Flags, ppEnumNetwork);
+    HRESULT hr = original->GetNetworks(Flags, ppEnumNetwork);
+    DEBUG_LOG("NLM::GetNetworks flags=0x%x hr=0x%08lx out=%p", static_cast<unsigned>(Flags), static_cast<unsigned long>(hr), (void*)(ppEnumNetwork != nullptr ? *ppEnumNetwork : nullptr));
+    return hr;
 }
 
 HRESULT STDMETHODCALLTYPE FakeNetworkListManager::GetNetwork(GUID gdNetworkId, INetwork** ppNetwork) {
-    return original->GetNetwork(gdNetworkId, ppNetwork);
+    HRESULT hr = original->GetNetwork(gdNetworkId, ppNetwork);
+    DEBUG_LOG("NLM::GetNetwork id=%s hr=0x%08lx out=%p", DbgGuid(gdNetworkId).c_str(), static_cast<unsigned long>(hr), (void*)(ppNetwork != nullptr ? *ppNetwork : nullptr));
+    return hr;
 }
 
 HRESULT STDMETHODCALLTYPE FakeNetworkListManager::GetNetworkConnections(IEnumNetworkConnections** ppEnum) {
-    return original->GetNetworkConnections(ppEnum);
+    HRESULT hr = original->GetNetworkConnections(ppEnum);
+    DEBUG_LOG("NLM::GetNetworkConnections hr=0x%08lx out=%p", static_cast<unsigned long>(hr), (void*)(ppEnum != nullptr ? *ppEnum : nullptr));
+    return hr;
 }
 
 HRESULT STDMETHODCALLTYPE FakeNetworkListManager::GetNetworkConnection(GUID gdNetworkConnectionId, INetworkConnection** ppNetworkConnection) {
-    return original->GetNetworkConnection(gdNetworkConnectionId, ppNetworkConnection);
+    HRESULT hr = original->GetNetworkConnection(gdNetworkConnectionId, ppNetworkConnection);
+    DEBUG_LOG("NLM::GetNetworkConnection id=%s hr=0x%08lx out=%p", DbgGuid(gdNetworkConnectionId).c_str(), static_cast<unsigned long>(hr), (void*)(ppNetworkConnection != nullptr ? *ppNetworkConnection : nullptr));
+    return hr;
 }
 
 HRESULT STDMETHODCALLTYPE FakeNetworkListManager::GetConnectivity(NLM_CONNECTIVITY* pConnectivity) {
-    return original->GetConnectivity(pConnectivity);
+    HRESULT hr = original->GetConnectivity(pConnectivity);
+    unsigned val = (SUCCEEDED(hr) && pConnectivity != nullptr) ? static_cast<unsigned>(*pConnectivity) : 0;
+    DEBUG_LOG("NLM::GetConnectivity hr=0x%08lx val=0x%x (orig passthrough)", static_cast<unsigned long>(hr), val);
+    return hr;
 }
 
 HRESULT STDMETHODCALLTYPE FakeNetworkListManager::SetSimulatedProfileInfo(NLM_SIMULATED_PROFILE_INFO* pSimulatedInfo) {
