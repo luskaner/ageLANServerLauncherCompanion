@@ -64,7 +64,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="AgeFakeHost.rc">
+    <ResourceCompile Include="AgeFakeHostsCerts.rc">
       <Filter>Archivos de recursos</Filter>
     </ResourceCompile>
   </ItemGroup>

@@ -5,7 +5,7 @@ Age LAN Server - Launcher Companion aims to provide DLL files to enhance or fix 
 ## Libraries
 
 * `Age2FakeOnline.dll` and `Age3FakeOnline.dll`: Fakes an internet always online behaviour. It is essential so that [Age Lan Server](https://github.com/luskaner/ageLANServer) can be used without connected to the internet, but still connected to LAN. **AoE I and AoM: RT do not need it**.
-* `AgeFakeHost.dll`: Fakes the resolving of hosts. It avoids the need for the launcher to modify the system-wide hosts (which requires admin permissions, affects all apps and so the changes need to be reverted). **Can be used for all games**.
+* `AgeFakeHostsCerts.dll`: Fakes the resolving of hosts and handles certificate trust. It avoids the need for the launcher to modify the system-wide hosts (which requires admin permissions, affects all apps and so the changes need to be reverted). **Can be used for all games**.
 
 *Note: It is [suspected](https://github.com/luskaner/ageLANServerLauncherCompanion/issues/9) `Age3FakeOnline.dll` is not actually needed*.
 
@@ -454,9 +454,9 @@ disable_lan_only=1
 
 ## All games
 
-### Age Fake Host
+### Age Fake Hosts Certs
 
-`AgeFakeHost.dll` Fakes the resolving of hosts. It avoids the need for the launcher to modify the system-wide hosts (which requires admin permissions, affects all apps and so the changes need to be reverted). To use it, you need to drop the dll file into the `dlls` specified in the configuration above (*as explained in AoE II and III, if you are using AoE I, configure the folder*). For launcher v1.8.0 (or higher) integration, you need to add to the proper game config file the `--overrideHosts={HostFilePath}` argument to the `Client.ExecutableArgs`.
+`AgeFakeHostsCerts.dll` Fakes the resolving of hosts and handles certificate trust. It avoids the need for the launcher to modify the system-wide hosts (which requires admin permissions, affects all apps and so the changes need to be reverted). To use it, you need to drop the dll file into the `dlls` specified in the configuration above (*as explained in AoE II and III, if you are using AoE I, configure the folder*). For launcher v1.8.0 (or higher) integration, you need to add to the proper game config file the `--overrideHosts={HostFilePath}` argument to the `Client.ExecutableArgs`.
 
 ## Development
 
