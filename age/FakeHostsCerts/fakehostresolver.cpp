@@ -15,7 +15,7 @@ int WINAPI Mine_GetAddrInfo(
     PCSTR pServiceName,
     const ADDRINFOA* pHints,
     PADDRINFOA* ppResult
-) {
+) noexcept {
     const char* nodeLog = pNodeName != nullptr ? pNodeName : "(null)";
     const char* svcLog = pServiceName != nullptr ? pServiceName : "(null)";
     int hintFamily = pHints != nullptr ? pHints->ai_family : -1;
@@ -79,12 +79,12 @@ int WINAPI Mine_GetAddrInfo(
     }
 }
 
-void FakeHostResolverAttach() {
+void FakeHostResolverAttach() noexcept {
     DEBUG_LOG("attach getaddrinfo hook");
     DetourAttach(&(PVOID&)Real_GetAddrInfo, Mine_GetAddrInfo);
 }
 
-void FakeHostResolverDetach() {
+void FakeHostResolverDetach() noexcept {
     DEBUG_LOG("detach getaddrinfo hook");
     DetourDetach(&(PVOID&)Real_GetAddrInfo, Mine_GetAddrInfo);
 }

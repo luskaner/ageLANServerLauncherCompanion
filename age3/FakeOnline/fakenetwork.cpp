@@ -48,8 +48,10 @@ HRESULT FakeNetwork::GetDomainType(
     NLM_DOMAIN_TYPE* pNetworkType
 ) {
     HRESULT hr = m_pOriginal->GetDomainType(pNetworkType);
+#ifdef _DEBUG
     int val = (SUCCEEDED(hr) && pNetworkType != nullptr) ? (int)*pNetworkType : -1;
     DEBUG_LOG("Network::GetDomainType hr=0x%08lx val=%d", static_cast<unsigned long>(hr), val);
+#endif
     return hr;
 }
 
@@ -57,8 +59,10 @@ HRESULT FakeNetwork::GetConnectivity(
     NLM_CONNECTIVITY* pConnectivity
 ) {
     HRESULT hr = m_pOriginal->GetConnectivity(pConnectivity);
+#ifdef _DEBUG
     unsigned val = (SUCCEEDED(hr) && pConnectivity != nullptr) ? static_cast<unsigned>(*pConnectivity) : 0;
     DEBUG_LOG("Network::GetConnectivity hr=0x%08lx val=0x%x", static_cast<unsigned long>(hr), val);
+#endif
     return hr;
 }
 
@@ -91,22 +95,28 @@ HRESULT STDMETHODCALLTYPE FakeNetwork::GetTimeCreatedAndConnected(DWORD* pdwLowD
 
 HRESULT STDMETHODCALLTYPE FakeNetwork::get_IsConnected(VARIANT_BOOL* pbIsConnected) {
     HRESULT hr = m_pOriginal->get_IsConnected(pbIsConnected);
+#ifdef _DEBUG
     short val = (SUCCEEDED(hr) && pbIsConnected != nullptr) ? *pbIsConnected : 0;
     DEBUG_LOG("Network::get_IsConnected hr=0x%08lx val=%d", static_cast<unsigned long>(hr), (int)val);
+#endif
     return hr;
 }
 
 HRESULT STDMETHODCALLTYPE FakeNetwork::get_IsConnectedToInternet(VARIANT_BOOL* pbIsConnected) {
     HRESULT hr = m_pOriginal->get_IsConnected(pbIsConnected);
+#ifdef _DEBUG
     short val = (SUCCEEDED(hr) && pbIsConnected != nullptr) ? *pbIsConnected : 0;
     DEBUG_LOG("Network::get_IsConnectedToInternet hr=0x%08lx val=%d (mapped to IsConnected)", static_cast<unsigned long>(hr), (int)val);
+#endif
     return hr;
 }
 
 HRESULT STDMETHODCALLTYPE FakeNetwork::GetCategory(NLM_NETWORK_CATEGORY* pCategory) {
     HRESULT hr = m_pOriginal->GetCategory(pCategory);
+#ifdef _DEBUG
     int val = (SUCCEEDED(hr) && pCategory != nullptr) ? (int)*pCategory : -1;
     DEBUG_LOG("Network::GetCategory hr=0x%08lx val=%d", static_cast<unsigned long>(hr), val);
+#endif
     return hr;
 }
 

@@ -5,7 +5,7 @@
 
 HRESULT(WINAPI* Real_CoCreateInstance)(REFCLSID rclsid, LPUNKNOWN pUnkOuter, DWORD dwClsContext, REFIID riid, LPVOID* ppv) = CoCreateInstance;
 
-HRESULT WINAPI Mine_CoCreateInstance(REFCLSID rclsid, LPUNKNOWN pUnkOuter, DWORD dwClsContext, REFIID riid, LPVOID* ppv) {
+HRESULT WINAPI Mine_CoCreateInstance(REFCLSID rclsid, LPUNKNOWN pUnkOuter, DWORD dwClsContext, REFIID riid, LPVOID* ppv) noexcept {
     DEBUG_LOG("CoCreateInstance enter cls=%s iid=%s ctx=0x%lx outer=%p",
         DbgGuid(rclsid).c_str(), DbgGuid(riid).c_str(), static_cast<unsigned long>(dwClsContext), (void*)pUnkOuter);
     HRESULT hr = Real_CoCreateInstance(rclsid, pUnkOuter, dwClsContext, riid, ppv);
@@ -23,12 +23,12 @@ HRESULT WINAPI Mine_CoCreateInstance(REFCLSID rclsid, LPUNKNOWN pUnkOuter, DWORD
     return hr;
 }
 
-void COMDllProcessAttach() {
+void COMDllProcessAttach() noexcept {
     DEBUG_LOG("attach CoCreateInstance hook");
     DetourAttach(&(PVOID&)Real_CoCreateInstance, Mine_CoCreateInstance);
 }
 
-void COMDllProcessDetach() {
+void COMDllProcessDetach() noexcept {
     DEBUG_LOG("detach CoCreateInstance hook");
     DetourDetach(&(PVOID&)Real_CoCreateInstance, Mine_CoCreateInstance);
 }

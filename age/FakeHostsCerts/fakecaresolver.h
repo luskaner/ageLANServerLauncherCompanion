@@ -4,5 +4,5 @@
 // are incomplete, in which case the attach below must not be called.
 bool FakeCAResolverInit();
 
-void FakeCAResolverAttach();
-void FakeCAResolverDetach();
+void FakeCAResolverAttach() noexcept;
+void FakeCAResolverDetach() noexcept;

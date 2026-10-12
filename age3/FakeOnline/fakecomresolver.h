@@ -1,4 +1,4 @@
 #pragma once
 
-void COMDllProcessAttach();
-void COMDllProcessDetach();
+void COMDllProcessAttach() noexcept;
+void COMDllProcessDetach() noexcept;

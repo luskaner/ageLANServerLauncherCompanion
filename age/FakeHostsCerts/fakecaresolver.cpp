@@ -294,7 +294,7 @@ namespace {
         LPCSTR pszPolicyOID,
         PCCERT_CHAIN_CONTEXT pChainContext,
         PCERT_CHAIN_POLICY_PARA pPolicyPara,
-        PCERT_CHAIN_POLICY_STATUS pPolicyStatus) {
+        PCERT_CHAIN_POLICY_STATUS pPolicyStatus) noexcept {
         BOOL result = Real_CertVerifyCertificateChainPolicy(
             pszPolicyOID, pChainContext, pPolicyPara, pPolicyStatus);
         DWORD errBefore = (pPolicyStatus != nullptr) ? pPolicyStatus->dwError : 0;
@@ -374,7 +374,7 @@ static SECURITY_STATUS SEC_ENTRY Mine_AcquireCredentialsHandleA(
     return st;
 }
 
-void FakeCAResolverAttach() {
+void FakeCAResolverAttach() noexcept {
     DEBUG_LOG("attach CA hooks");
     DetourAttach(&(PVOID&)Real_AcquireCredentialsHandleW, Mine_AcquireCredentialsHandleW);
     DetourAttach(&(PVOID&)Real_AcquireCredentialsHandleA, Mine_AcquireCredentialsHandleA);
@@ -382,7 +382,7 @@ void FakeCAResolverAttach() {
     DetourAttach(&(PVOID&)Real_WinHttpSendRequest, Mine_WinHttpSendRequest);
 }
 
-void FakeCAResolverDetach() {
+void FakeCAResolverDetach() noexcept {
     DEBUG_LOG("detach CA hooks");
     DetourDetach(&(PVOID&)Real_AcquireCredentialsHandleW, Mine_AcquireCredentialsHandleW);
     DetourDetach(&(PVOID&)Real_AcquireCredentialsHandleA, Mine_AcquireCredentialsHandleA);

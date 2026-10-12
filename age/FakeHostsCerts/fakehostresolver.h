@@ -1,4 +1,4 @@
 #pragma once
 
-void FakeHostResolverAttach();
-void FakeHostResolverDetach();
+void FakeHostResolverAttach() noexcept;
+void FakeHostResolverDetach() noexcept;

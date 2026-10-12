@@ -24,15 +24,19 @@ HRESULT STDMETHODCALLTYPE FakeNetworkListManager::Invoke(DISPID dispIdMember, RE
 
 HRESULT STDMETHODCALLTYPE FakeNetworkListManager::get_IsConnectedToInternet(VARIANT_BOOL* pbIsConnected) {
     HRESULT hr = original->get_IsConnected(pbIsConnected);
+#ifdef _DEBUG
     short val = (SUCCEEDED(hr) && pbIsConnected != nullptr) ? *pbIsConnected : 0;
     DEBUG_LOG("NLM::get_IsConnectedToInternet hr=0x%08lx val=%d", static_cast<unsigned long>(hr), (int)val);
+#endif
     return hr;
 }
 
 HRESULT STDMETHODCALLTYPE FakeNetworkListManager::get_IsConnected(VARIANT_BOOL* pbIsConnected) {
     HRESULT hr = original->get_IsConnected(pbIsConnected);
+#ifdef _DEBUG
     short val = (SUCCEEDED(hr) && pbIsConnected != nullptr) ? *pbIsConnected : 0;
     DEBUG_LOG("NLM::get_IsConnected hr=0x%08lx val=%d (passthrough)", static_cast<unsigned long>(hr), (int)val);
+#endif
 	return hr;
 }
 
@@ -85,8 +89,10 @@ HRESULT STDMETHODCALLTYPE FakeNetworkListManager::GetNetworkConnection(GUID gdNe
 
 HRESULT STDMETHODCALLTYPE FakeNetworkListManager::GetConnectivity(NLM_CONNECTIVITY* pConnectivity) {
     HRESULT hr = original->GetConnectivity(pConnectivity);
+#ifdef _DEBUG
     unsigned val = (SUCCEEDED(hr) && pConnectivity != nullptr) ? static_cast<unsigned>(*pConnectivity) : 0;
     DEBUG_LOG("NLM::GetConnectivity hr=0x%08lx val=0x%x", static_cast<unsigned long>(hr), val);
+#endif
     return hr;
 }
 
