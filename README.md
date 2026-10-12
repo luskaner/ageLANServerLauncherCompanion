@@ -456,7 +456,13 @@ disable_lan_only=1
 
 ### Age Fake Hosts Certs
 
-`AgeFakeHostsCerts.dll` Fakes the resolving of hosts and handles certificate trust. It avoids the need for the launcher to modify the system-wide hosts (which requires admin permissions, affects all apps and so the changes need to be reverted). To use it, you need to drop the dll file into the `dlls` specified in the configuration above (*as explained in AoE II and III, if you are using AoE I, configure the folder*). For launcher v1.8.0 (or higher) integration, you need to add to the proper game config file the `--overrideHosts={HostFilePath}` argument to the `Client.ExecutableArgs`.
+`AgeFakeHostsCerts.dll` Fakes the resolving of hosts and handles certificate trust. It avoids the need for the launcher to modify the system-wide hosts (which requires admin permissions, affects all apps and so the changes need to be reverted). To use it, you need to drop the dll file into the `dlls` specified in the configuration above (*as explained in AoE II and III, if you are using AoE I, configure the folder*). 
+
+For launcher v1.8.0 (or higher) integration, you need to add to the proper game config file:
+- `--overrideHosts={HostFilePath}` argument to the `Client.ExecutableArgs` for host resolution
+- `--overrideCerts={CertFilePath}` argument to the `Client.ExecutableArgs` for certificate trust (PEM file with the LAN server CA certificate)
+
+**Note:** Without `--overrideCerts`, only the host resolution part works. The certificate trust feature (accepting the LAN server's self-signed certificate) requires this option.
 
 ## Development
 
